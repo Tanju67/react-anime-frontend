@@ -1,0 +1,8 @@
+.mainNav {
+  background-color: var(--clr-secondary);
+  color: #fff;
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,123 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.imgBox {
+  flex: 1;
+  height: 25rem;
+  justify-content: flex-start;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.imgBox img {
+  height: 50rem;
+  width: 90%;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.infoBox {
+  flex: 1;
+  font-size: 1.4rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+}
+
+.infoBox p {
+  width: 90%;
+}
+
+.hoverElement {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  border: 2px solid rgb(255, 215, 0);
+}
+
+.hoverBtn {
+  color: #fff;
+  background-color: rgba(255, 215, 0, 0.25);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.hoverBtn:hover {
+  background-color: rgb(255, 215, 0);
+}
+
+.imgBox:hover .hoverElement {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media only screen and (max-width: 1400px) {
+  .imgBox {
+    flex: 1;
+    height: 25rem;
+
+    display: flex;
+  }
+  .imgBox img {
+    height: 30rem;
+    object-fit: initial;
+    object-position: initial;
+  }
+
+  .infoBox {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .imgBox img {
+    height: 30rem;
+  }
+  .infoBox {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .imgBox img {
+    height: 35rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .imgBox img {
+    height: auto;
+    width: 100%;
+  }
+
+  .infoBox p {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+}

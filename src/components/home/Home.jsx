@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import Carousel from "../../shared/UIElements/carousel/Carousel";
 import SectionLayout from "../../shared/UIElements/SectionLayout";
 import { Await, useLoaderData } from "react-router-dom";
+import Spinner from "../../shared/UIElements/Spinner";
 
 function Home() {
   const { data, upcoming, topManga, topMovie } = useLoaderData();
@@ -10,7 +11,7 @@ function Home() {
   console.log(topMovie);
   return (
     <div className={styles.page}>
-      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={data}>
           {(loadedData) => (
             <SectionLayout title={"Top 10 Anime Series"}>
@@ -19,7 +20,7 @@ function Home() {
           )}
         </Await>
       </Suspense>
-      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={topMovie}>
           {(loadedData) => (
             <SectionLayout title={"Top 10 Anime Movies"}>
@@ -28,7 +29,7 @@ function Home() {
           )}
         </Await>
       </Suspense>
-      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={upcoming}>
           {(loadedData) => (
             <SectionLayout title={"Upcoming Season"}>
@@ -37,7 +38,7 @@ function Home() {
           )}
         </Await>
       </Suspense>
-      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={topManga}>
           {(loadedData) => (
             <SectionLayout title={"Top 10 Mangas"}>

@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./SectionLayout.module.css";
 
-function SectionLayout({ children, title }) {
+function SectionLayout({ children, title, className }) {
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${className}`}>
       <h3>{title}</h3>
       {children}
     </div>

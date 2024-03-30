@@ -81,8 +81,12 @@ function Carousel({ animeList }) {
             key={item.mal_id}
             id={item.mal_id}
             image={item.images.jpg.large_image_url}
-            title={item.title_english}
-            year={item.year}
+            title={item.title_english || item.title}
+            year={
+              item.year ||
+              item?.published?.prop?.from?.year ||
+              item.aired.prop?.from?.year
+            }
           />
         ))}
       </Slider>

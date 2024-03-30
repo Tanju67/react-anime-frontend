@@ -1,32 +1,53 @@
-import React, { useEffect } from "react";
+import React, { Suspense } from "react";
 import styles from "./Home.module.css";
 import Carousel from "../../shared/UIElements/carousel/Carousel";
 import SectionLayout from "../../shared/UIElements/SectionLayout";
-import { arr } from "../../data/data";
+import { Await, useLoaderData } from "react-router-dom";
 
 function Home() {
+  const { data, upcoming, topManga, topMovie } = useLoaderData();
+
+  console.log(topMovie);
   return (
     <div className={styles.page}>
-      <SectionLayout title={"Top Ten Animes"}>
-        <Carousel animeList={arr} />
-      </SectionLayout>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={data}>
+          {(loadedData) => (
+            <SectionLayout title={"Top 10 Anime Series"}>
+              <Carousel animeList={loadedData.data} />
+            </SectionLayout>
+          )}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={topMovie}>
+          {(loadedData) => (
+            <SectionLayout title={"Top 10 Anime Movies"}>
+              <Carousel animeList={loadedData?.data} />
+            </SectionLayout>
+          )}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={upcoming}>
+          {(loadedData) => (
+            <SectionLayout title={"Upcoming Season"}>
+              <Carousel animeList={loadedData.data} />
+            </SectionLayout>
+          )}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={topManga}>
+          {(loadedData) => (
+            <SectionLayout title={"Top 10 Mangas"}>
+              <Carousel animeList={loadedData.data} />
+            </SectionLayout>
+          )}
+        </Await>
+      </Suspense>
     </div>
   );
 }
 
 export default Home;
-
-// const getAnime = async (endPoint) => {
-//   try {
-//     const res = await fetch(
-//       `https://api.jikan.moe/v4/top/anime?page=1&limit=10`
-//     );
-//     const data = await res.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// useEffect(() => {
-//   getAnime();
-// }, []);

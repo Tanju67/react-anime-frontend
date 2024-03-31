@@ -4,13 +4,19 @@ import Carousel from "../../shared/UIElements/carousel/Carousel";
 import SectionLayout from "../../shared/UIElements/SectionLayout";
 import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
+import Header from "./Header";
 
 function Home() {
   const { data, upcoming, topManga, topMovie } = useLoaderData();
 
-  console.log(topMovie);
   return (
     <div className={styles.page}>
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={data}>
+          {(loadedData) => <Header animeList={loadedData.data} />}
+        </Await>
+      </Suspense>
+
       <Suspense fallback={<Spinner />}>
         <Await resolve={data}>
           {(loadedData) => (

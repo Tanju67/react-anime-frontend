@@ -4,15 +4,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --clr-primary: #474f7a;
-  --clr-primary-shade: #393f62;
-  --clr-primary-tint: #6c7295;
-  --clr-secondary: #1f2544;
-  --clr-secondary-shade: #191e36;
-  --clr-secondary-tint: #4c5169;
-  --clr-btn: #ffd700;
-  --clr-btn-shade: #ccac00;
-  --clr-btn-tint: #ffdf33;
+  --clr-primary: #000;
+  --clr-primary-shade: #000;
+  --clr-primary-tint: #333333;
+  --clr-secondary: #261c2c;
+  --clr-secondary-shade: #1e1623;
+  --clr-secondary-tint: #514956;
+  --clr-btn: #fda403;
+  --clr-btn-shade: #ca8302;
+  --clr-btn-tint: #fdb635;
   --clr-text-dark: #222;
   --clr-text-normal: #444;
   --clr-text-light: #666;
@@ -48,6 +48,40 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+#btnBox {
+  position: absolute;
+  bottom: 5rem;
+  left: 4rem;
+  width: 50rem;
+  display: flex;
+}
+#btnBox li {
+  position: relative;
+  flex: 1;
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+#btnBox li button {
+  width: 60%;
+  height: 0;
+  background-color: var(--clr-btn-tint);
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+#btnBox li button::before {
+  content: "";
+}
+
+#btnBox li.slick-active button {
+  width: 5rem;
 }
 
 @media only screen and (max-width: 850px) {

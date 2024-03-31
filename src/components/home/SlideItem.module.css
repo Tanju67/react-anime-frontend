@@ -1,0 +1,38 @@
+.item {
+  display: flex;
+  gap: 2rem;
+  height: 90vh;
+}
+
+.infoBox {
+  flex: 2;
+  padding: 8rem 4rem;
+  color: #bbb;
+}
+
+.infoBox h2 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.info {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.desc {
+  margin-bottom: 2rem;
+}
+
+.imgBox {
+  flex: 2;
+}
+
+.imgBox img {
+  height: 40rem;
+}
+
+.btnBox button {
+  width: 5rem;
+}

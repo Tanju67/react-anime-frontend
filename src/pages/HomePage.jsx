@@ -13,8 +13,6 @@ async function loadTopAnime() {
     `https://api.jikan.moe/v4/top/anime?page=1&limit=10&type=tv`
   );
 
-  console.log(response);
-
   if (!response.ok) {
     if (response.status === 429) {
       throw json(
@@ -65,6 +63,7 @@ async function loadUpcomingSeason() {
 }
 
 async function loadTopManga() {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   const response = await fetch(
     `https://api.jikan.moe/v4/top/manga?page=1&limit=10`
   );
@@ -92,7 +91,7 @@ async function loadTopManga() {
 }
 
 async function loadTopAnimeMovie() {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const response = await fetch(
     `https://api.jikan.moe/v4/top/anime?page=1&limit=10&type=movie`
   );
@@ -115,7 +114,6 @@ async function loadTopAnimeMovie() {
     }
   } else {
     const resData = await response.json();
-    console.log(resData);
     return resData;
   }
 }

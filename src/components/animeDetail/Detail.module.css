@@ -1,0 +1,63 @@
+.container {
+  height: 100vh;
+}
+
+.subNav {
+  padding: 1rem 4rem;
+  background-color: rgba(10, 10, 10, 0.95);
+  width: 100%;
+  position: fixed;
+}
+.subNav a {
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.subNav a:hover {
+  color: #aaa;
+}
+.content {
+  padding: 8rem 4rem;
+  display: flex;
+  gap: 5rem;
+  height: 93vh; /* overflow-y: scroll; */
+}
+.imgBox {
+}
+
+.imgBox img {
+  height: 40rem;
+  border-radius: 1rem;
+}
+.infoBox {
+}
+
+.title {
+  color: #fff;
+}
+.year {
+}
+.desc {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+.synopsis {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+.genre {
+  display: flex;
+  gap: 4rem;
+}
+
+.genre ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.btnBox {
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoBox {
+  flex: 2;
+  color: #bbb;
+}
+
+.imgBox {
+  flex: 2;
+}
+
+.item.rounded .imgBox img {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.item .imgBox img {
+  width: 15rem;
+  border-radius: 1rem;
+}

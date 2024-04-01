@@ -1,7 +1,69 @@
 import React from "react";
+import AnimeDetail from "../components/animeDetail/AnimeDetail";
+import { defer, json } from "react-router-dom";
 
 function AnimeDetailPage() {
-  return <div>AnimeDetailPage</div>;
+  return <AnimeDetail />;
 }
 
 export default AnimeDetailPage;
+
+async function loadAnimeById(id) {
+  const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
+
+  if (!response.ok) {
+    if (response.status === 429) {
+      throw json(
+        { message: "Too many request" },
+        {
+          status: 429,
+        }
+      );
+    } else {
+      throw json(
+        { message: "Could not fetch anime data." },
+        {
+          status: 500,
+        }
+      );
+    }
+  } else {
+    const resData = await response.json();
+    return resData;
+  }
+}
+
+async function loadAnimeStaff(id) {
+  const response = await fetch(
+    `https://api.jikan.moe/v4/anime/${id}/characters`
+  );
+
+  if (!response.ok) {
+    if (response.status === 429) {
+      throw json(
+        { message: "Too many request" },
+        {
+          status: 429,
+        }
+      );
+    } else {
+      throw json(
+        { message: "Could not fetch anime data." },
+        {
+          status: 500,
+        }
+      );
+    }
+  } else {
+    const resData = await response.json();
+    return resData;
+  }
+}
+
+export async function loader({ request, params }) {
+  const id = params.id;
+  return defer({
+    data: loadAnimeById(id),
+    characters: loadAnimeStaff(id),
+  });
+}

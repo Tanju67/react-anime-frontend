@@ -25,7 +25,7 @@ function Button({ children, className, type, size, to, rounded }) {
         size === "sm" ? styles.btn_sm : ""
       } ${size === "md" ? styles.btn_md : ""} ${
         size === "large" ? styles.btn_large : ""
-      }`}
+      } ${rounded === true ? styles.rounded : ""}`}
     >
       {children}
     </button>

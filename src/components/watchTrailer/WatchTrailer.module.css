@@ -20,3 +20,14 @@
   gap: 2rem;
   margin-bottom: 2rem;
 }
+
+.subNav {
+  text-align: start;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-left: 4rem;
+}
+
+.subNav a {
+  color: #fff;
+}

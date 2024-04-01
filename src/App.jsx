@@ -5,7 +5,9 @@ import ErrorPage from "./pages/ErrorPage";
 import WatchTrailerPage, {
   loader as trailerLoader,
 } from "./pages/WatchTrailerPage";
-import AnimeDetailPage from "./pages/AnimeDetailPage";
+import AnimeDetailPage, {
+  loader as detailLoader,
+} from "./pages/AnimeDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: "anime/:id",
         element: <AnimeDetailPage />,
+        loader: detailLoader,
       },
     ],
   },

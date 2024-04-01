@@ -6,6 +6,7 @@ function Button({ children, className, type, size, to, rounded }) {
   if (to) {
     return (
       <Link
+        to={to}
         type={type}
         className={`${styles.btn} ${className} ${
           size === "sm" ? styles.btn_sm : ""

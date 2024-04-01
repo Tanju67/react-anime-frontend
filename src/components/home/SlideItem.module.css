@@ -13,6 +13,12 @@
 .infoBox h2 {
   color: #fff;
   font-size: 2.5rem;
+  transition: all 0.3s;
+}
+
+.infoBox h2:hover {
+  color: var(--clr-btn);
+  text-decoration: underline;
 }
 
 .info {
@@ -35,4 +41,23 @@
 
 .btnBox button {
   width: 5rem;
+}
+
+.video {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 1000;
+
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.video iframe {
+  position: absolute;
+  width: 100rem;
+  height: 70vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }

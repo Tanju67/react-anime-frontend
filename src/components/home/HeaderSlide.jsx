@@ -36,6 +36,8 @@ function HeaderSlide({ animeList }) {
             year={item?.year}
             score={item?.score}
             image={item?.images.jpg.large_image_url}
+            trailer={item.trailer.embed_url}
+            id={item.mal_id}
           />
         ))}
       </Slider>

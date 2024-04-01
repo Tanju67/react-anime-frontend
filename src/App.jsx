@@ -2,13 +2,28 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import HomePage, { loader as homePageLoader } from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";
+import WatchTrailerPage, {
+  loader as trailerLoader,
+} from "./pages/WatchTrailerPage";
+import AnimeDetailPage from "./pages/AnimeDetailPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    children: [{ index: true, element: <HomePage />, loader: homePageLoader }],
+    children: [
+      { index: true, element: <HomePage />, loader: homePageLoader },
+      {
+        path: "trailer/:id",
+        element: <WatchTrailerPage />,
+        loader: trailerLoader,
+      },
+      {
+        path: "anime/:id",
+        element: <AnimeDetailPage />,
+      },
+    ],
   },
 ]);
 

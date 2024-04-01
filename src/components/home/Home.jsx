@@ -8,6 +8,7 @@ import Header from "./Header";
 
 function Home() {
   const { data, upcoming, topManga, topMovie } = useLoaderData();
+  console.log(data);
 
   return (
     <div className={styles.page}>

@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./Button.module.css";
 import { Link } from "react-router-dom";
 
-function Button({ children, className, type, size, to, rounded }) {
+function Button({ children, className, type, size, to, rounded, onClick }) {
   if (to) {
     return (
       <Link
+        onClick={onClick}
         to={to}
         type={type}
         className={`${styles.btn} ${className} ${
@@ -20,6 +21,7 @@ function Button({ children, className, type, size, to, rounded }) {
   }
   return (
     <button
+      onClick={onClick}
       type={type}
       className={`${styles.btn} ${className} ${
         size === "sm" ? styles.btn_sm : ""

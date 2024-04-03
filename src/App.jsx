@@ -8,6 +8,7 @@ import WatchTrailerPage, {
 import AnimeDetailPage, {
   loader as detailLoader,
 } from "./pages/AnimeDetailPage";
+import ReviewsPage, { loader as reviewsLoader } from "./pages/ReviewsPage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
         path: "anime/:id",
         element: <AnimeDetailPage />,
         loader: detailLoader,
+      },
+      {
+        path: "reviews/:id",
+        element: <ReviewsPage />,
+        loader: reviewsLoader,
       },
     ],
   },

@@ -1,0 +1,22 @@
+.layout {
+  height: fit-content;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  row-gap: 3rem;
+}
+
+.link {
+  color: #fff;
+  font-style: italic;
+  transition: all 0.3s;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.link:hover {
+  color: var(--clr-btn-tint);
+}

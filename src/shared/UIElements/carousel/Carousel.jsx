@@ -37,7 +37,7 @@ function NextArrow(props) {
   );
 }
 
-function Carousel({ animeList }) {
+function Carousel({ animeList, similar }) {
   const settings = {
     dots: false,
     infinite: false,
@@ -76,18 +76,8 @@ function Carousel({ animeList }) {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        {animeList.map((item) => (
-          <SliderItem
-            key={item.mal_id}
-            id={item.mal_id}
-            image={item.images.jpg.large_image_url}
-            title={item.title_english || item.title}
-            year={
-              item.year ||
-              item?.published?.prop?.from?.year ||
-              item.aired.prop?.from?.year
-            }
-          />
+        {animeList.map((item, i) => (
+          <SliderItem similar={similar} item={item} key={i} />
         ))}
       </Slider>
     </div>

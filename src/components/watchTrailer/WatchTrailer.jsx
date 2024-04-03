@@ -7,7 +7,6 @@ import Button from "../../shared/UIElements/Button";
 function WatchTrailer() {
   const { data } = useLoaderData();
   const id = useParams().id;
-  console.log(data);
   return (
     <Suspense fallback={<Spinner />}>
       <Await resolve={data}>

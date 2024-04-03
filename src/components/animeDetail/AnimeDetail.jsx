@@ -5,10 +5,12 @@ import Spinner from "../../shared/UIElements/Spinner";
 import { Await, useLoaderData } from "react-router-dom";
 import MainCharacters from "./MainCharacters";
 import VoiceActors from "./VoiceActors";
+import AnimeReviews from "./AnimeReviews";
+import SimilarAnimes from "./SimilarAnimes";
 
 function AnimeDetail() {
   const [bgImg, setBgImg] = useState("");
-  const { data, characters } = useLoaderData();
+  const { data, characters, reviews, recommend } = useLoaderData();
   const bgHandler = (bg) => {
     setBgImg(bg);
   };
@@ -39,6 +41,16 @@ rgba(10,10,10, .95), rgba(10,10,10, .95)
               <VoiceActors data={loadedData.data} />
             </>
           )}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={reviews}>
+          {(loadedData) => <AnimeReviews data={loadedData.data} />}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={recommend}>
+          {(loadedData) => <SimilarAnimes data={loadedData.data} />}
         </Await>
       </Suspense>
     </div>

@@ -7,7 +7,7 @@ import Spinner from "../../shared/UIElements/Spinner";
 import Header from "./Header";
 
 function Home() {
-  const { data, upcoming, topManga, topMovie } = useLoaderData();
+  const { data, upcoming, topMovie } = useLoaderData();
 
   return (
     <div className={styles.page}>
@@ -39,15 +39,6 @@ function Home() {
         <Await resolve={upcoming}>
           {(loadedData) => (
             <SectionLayout title={"Upcoming Season"}>
-              <Carousel animeList={loadedData.data} />
-            </SectionLayout>
-          )}
-        </Await>
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <Await resolve={topManga}>
-          {(loadedData) => (
-            <SectionLayout title={"Top 10 Mangas"}>
               <Carousel animeList={loadedData.data} />
             </SectionLayout>
           )}

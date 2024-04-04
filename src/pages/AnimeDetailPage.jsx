@@ -115,6 +115,32 @@ async function loadAnimeRecommend(id) {
   }
 }
 
+async function loadAnimeEpisodes(id, page) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/episodes`);
+
+  if (!response.ok) {
+    if (response.status === 429) {
+      throw json(
+        { message: "Too many request" },
+        {
+          status: 429,
+        }
+      );
+    } else {
+      throw json(
+        { message: "Could not fetch anime data." },
+        {
+          status: 500,
+        }
+      );
+    }
+  } else {
+    const resData = await response.json();
+    return resData;
+  }
+}
+
 export async function loader({ request, params }) {
   const id = params.id;
   const page = 1;
@@ -123,5 +149,6 @@ export async function loader({ request, params }) {
     characters: loadAnimeStaff(id),
     reviews: loadAnimeReviews(id, page),
     recommend: loadAnimeRecommend(id),
+    episodes: loadAnimeEpisodes(id),
   });
 }

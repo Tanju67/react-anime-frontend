@@ -7,10 +7,11 @@ import MainCharacters from "./MainCharacters";
 import VoiceActors from "./VoiceActors";
 import AnimeReviews from "./AnimeReviews";
 import SimilarAnimes from "./SimilarAnimes";
+import Episodes from "./Episodes";
 
 function AnimeDetail() {
   const [bgImg, setBgImg] = useState("");
-  const { data, characters, reviews, recommend } = useLoaderData();
+  const { data, characters, reviews, recommend, episodes } = useLoaderData();
   const bgHandler = (bg) => {
     setBgImg(bg);
   };
@@ -46,6 +47,11 @@ rgba(10,10,10, .95), rgba(10,10,10, .95)
       <Suspense fallback={<Spinner />}>
         <Await resolve={reviews}>
           {(loadedData) => <AnimeReviews data={loadedData.data} />}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={episodes}>
+          {(loadedData) => <Episodes data={loadedData.data} />}
         </Await>
       </Suspense>
       <Suspense fallback={<Spinner />}>

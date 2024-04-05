@@ -15,6 +15,7 @@ import AllEpisodesPage, {
 import AllCharactersPage, {
   loader as charactersLoader,
 } from "./pages/AllCharactersPage";
+import AllActorsPage, { loader as actorsLoader } from "./pages/AllActorsPage";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
         path: "characters/:id",
         element: <AllCharactersPage />,
         loader: charactersLoader,
+      },
+      {
+        path: "actors/:id",
+        element: <AllActorsPage />,
+        loader: actorsLoader,
       },
     ],
   },

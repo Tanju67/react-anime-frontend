@@ -1,43 +1,22 @@
-import React, { Suspense, useState } from "react";
-import styles from "./Reviews.module.css";
+import React, { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
-import Detail from "../animeDetail/Detail";
 import AnimeReviews from "../animeDetail/AnimeReviews";
+import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 
 function Reviews() {
-  const [bgImg, setBgImg] = useState("");
-  const { data, reviews } = useLoaderData();
-  const bgHandler = (bg) => {
-    setBgImg(bg);
-  };
+  const data = useLoaderData();
+
   return (
-    <div
-      style={{
-        backgroundImage: `linear-gradient(
-to right,
-rgba(10,10,10, .95), rgba(10,10,10, .95)
-),url(${bgImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-      className={styles.page}
-    >
+    <DetailPageLayout dataLoader={data}>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={data}>
-          {(loadedData) => <Detail onBg={bgHandler} anime={loadedData.data} />}
-        </Await>
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <Await resolve={reviews}>
+        <Await resolve={data.reviews}>
           {(loadedData) => (
-            <AnimeReviews data={loadedData.data} allReviews={true} />
+            <AnimeReviews data={loadedData.data} allData={true} />
           )}
         </Await>
       </Suspense>
-    </div>
+    </DetailPageLayout>
   );
 }
 

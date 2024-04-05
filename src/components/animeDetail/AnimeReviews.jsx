@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./AnimeReviews.module.css";
-import SectionLayout from "../../shared/UIElements/SectionLayout";
 import ReviewItem from "./ReviewItem";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import Modal from "../../shared/UIElements/Modal";
-import Subnav from "./Subnav";
+import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
 
-function AnimeReviews({ data, allReviews }) {
-  const slicedData = allReviews ? data : data.slice(0, 3);
-  const id = useParams().id;
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
+function AnimeReviews({ data, allData }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedReview, setSelectedReview] = useState({});
-
-  const prevHandler = () => {
-    if (page === 1) return;
-    setPage((page) => page - 1);
-    navigate(`/reviews/${id}?page=${page - 1}`);
-  };
-  const nextHandler = () => {
-    setPage((page) => page + 1);
-    navigate(`/reviews/${id}?page=${page + 1}`);
-  };
+  const slicedData = allData ? data : data.slice(0, 3);
 
   const showModalHandler = () => {
     setShowModal(true);
@@ -37,46 +22,28 @@ function AnimeReviews({ data, allReviews }) {
   };
 
   return (
-    <SectionLayout
-      className={styles.layout}
-      title={allReviews ? "All Reviews" : "Anime Reviews"}
+    <DetailPageSectionLayout
+      link={"reviews"}
+      title={"Anime Reviews"}
+      allData={allData}
     >
-      {data.length > 0 && (
-        <>
-          {!allReviews && (
-            <Link to={`/reviews/${id}?page=${page}`} className={styles.link}>
-              See all reviews &rarr;
-            </Link>
-          )}
-
-          {allReviews && (
-            <Subnav
-              page={page}
-              id={id}
-              nextHandler={nextHandler}
-              prevHandler={prevHandler}
-            />
-          )}
-          <div className={styles.container}>
-            {slicedData.map((item) => (
-              <ReviewItem
-                key={item.mal_id}
-                image={item.user.images.jpg.image_url}
-                name={item.user.username}
-                date={item.date}
-                spoiler={item.is_spoiler}
-                review={item.review}
-                score={item.score}
-                like={item.reactions.love_it}
-                dislike={item.reactions.confusing}
-                onShowModal={showModalHandler}
-                handleSelectedReview={handleSelectedReview}
-              />
-            ))}
-          </div>
-        </>
-      )}
-
+      <div className={styles.container}>
+        {slicedData.map((item) => (
+          <ReviewItem
+            key={item.mal_id}
+            image={item.user.images.jpg.image_url}
+            name={item.user.username}
+            date={item.date}
+            spoiler={item.is_spoiler}
+            review={item.review}
+            score={item.score}
+            like={item.reactions.love_it}
+            dislike={item.reactions.confusing}
+            onShowModal={showModalHandler}
+            handleSelectedReview={handleSelectedReview}
+          />
+        ))}
+      </div>
       {showModal && (
         <Modal onClick={hideModalHandler}>
           <ReviewItem
@@ -95,21 +62,7 @@ function AnimeReviews({ data, allReviews }) {
           />
         </Modal>
       )}
-
-      {data.length === 0 && (
-        <>
-          {allReviews && (
-            <Subnav
-              page={page}
-              id={id}
-              nextHandler={nextHandler}
-              prevHandler={prevHandler}
-            />
-          )}
-          <p>No review found.</p>
-        </>
-      )}
-    </SectionLayout>
+    </DetailPageSectionLayout>
   );
 }
 

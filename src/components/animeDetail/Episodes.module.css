@@ -1,20 +1,5 @@
-.layout {
-  height: auto;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.link {
-  color: #fff;
-  transition: all 0.3s;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.link:hover {
-  color: var(--clr-btn);
 }

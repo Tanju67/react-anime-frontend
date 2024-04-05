@@ -1,44 +1,22 @@
-import React, { Suspense, useState } from "react";
-import styles from "./AllCharacters.module.css";
+import React, { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
-import Detail from "../animeDetail/Detail";
 import MainCharacters from "../animeDetail/MainCharacters";
+import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 
 function AllCharacters() {
-  const [bgImg, setBgImg] = useState("");
-  const { data, allCharacters } = useLoaderData();
-  const bgHandler = (bg) => {
-    setBgImg(bg);
-  };
+  const data = useLoaderData();
 
   return (
-    <div
-      style={{
-        backgroundImage: `linear-gradient(
-to right,
-rgba(10,10,10, .95), rgba(10,10,10, .95)
-),url(${bgImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-      className={styles.page}
-    >
+    <DetailPageLayout dataLoader={data}>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={data}>
-          {(loadedData) => <Detail onBg={bgHandler} anime={loadedData.data} />}
-        </Await>
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <Await resolve={allCharacters}>
+        <Await resolve={data.allCharacters}>
           {(loadedData) => (
-            <MainCharacters data={loadedData.data} allChar={true} />
+            <MainCharacters data={loadedData.data} allData={true} />
           )}
         </Await>
       </Suspense>
-    </div>
+    </DetailPageLayout>
   );
 }
 

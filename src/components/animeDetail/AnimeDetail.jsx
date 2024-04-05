@@ -1,6 +1,4 @@
-import React, { Suspense, useState } from "react";
-import styles from "./AnimeDetail.module.css";
-import Detail from "./Detail";
+import React, { Suspense } from "react";
 import Spinner from "../../shared/UIElements/Spinner";
 import { Await, useLoaderData } from "react-router-dom";
 import MainCharacters from "./MainCharacters";
@@ -8,34 +6,16 @@ import VoiceActors from "./VoiceActors";
 import AnimeReviews from "./AnimeReviews";
 import SimilarAnimes from "./SimilarAnimes";
 import Episodes from "./Episodes";
+import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 
 function AnimeDetail() {
-  const [bgImg, setBgImg] = useState("");
-  const { data, characters, reviews, recommend, episodes } = useLoaderData();
-  const bgHandler = (bg) => {
-    setBgImg(bg);
-  };
+  const data = useLoaderData();
+  console.log(data);
+
   return (
-    <div
-      style={{
-        backgroundImage: `linear-gradient(
-to right,
-rgba(10,10,10, .95), rgba(10,10,10, .95)
-),url(${bgImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-      className={styles.page}
-    >
+    <DetailPageLayout dataLoader={data}>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={data}>
-          {(loadedData) => <Detail onBg={bgHandler} anime={loadedData.data} />}
-        </Await>
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <Await resolve={characters}>
+        <Await resolve={data.characters}>
           {(loadedData) => (
             <>
               <MainCharacters data={loadedData.data} />
@@ -45,21 +25,21 @@ rgba(10,10,10, .95), rgba(10,10,10, .95)
         </Await>
       </Suspense>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={reviews}>
+        <Await resolve={data.reviews}>
           {(loadedData) => <AnimeReviews data={loadedData.data} />}
         </Await>
       </Suspense>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={episodes}>
+        <Await resolve={data.episodes}>
           {(loadedData) => <Episodes data={loadedData.data} />}
         </Await>
       </Suspense>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={recommend}>
+        <Await resolve={data.recommend}>
           {(loadedData) => <SimilarAnimes data={loadedData.data} />}
         </Await>
       </Suspense>
-    </div>
+    </DetailPageLayout>
   );
 }
 

@@ -1,59 +1,28 @@
-import React, { useState } from "react";
-import styles from "./MainCharacters.module.css";
+import React from "react";
 import CharItem from "./CharItem";
+import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
+import styles from "./MainCharacters.module.css";
 
-import Carousel from "../../shared/UIElements/carousel/Carousel";
-import SectionLayout from "../../shared/UIElements/SectionLayout";
-import SliderItem from "../../shared/UIElements/carousel/SliderItem";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Subnav from "./Subnav";
-
-function MainCharacters({ data, allChar }) {
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
-  const mainChar = allChar ? data : data.filter((item) => item.role === "Main");
-
-  console.log(mainChar);
-  const id = useParams().id;
-
-  const prevHandler = () => {
-    if (page === 1) return;
-    setPage((page) => page - 1);
-    navigate(`/characters/${id}?page=${page - 1}`);
-  };
-  const nextHandler = () => {
-    setPage((page) => page + 1);
-    navigate(`/characters/${id}?page=${page + 1}`);
-  };
+function MainCharacters({ data, allData }) {
+  const mainChar = allData ? data : data.filter((item) => item.role === "Main");
 
   return (
-    <div className={styles.section}>
-      <SectionLayout className={styles.layout} title={"Main Characters"}>
-        {!allChar && (
-          <Link to={`/characters/${id}?page=${page}`} className={styles.link}>
-            See all characters &rarr;
-          </Link>
-        )}
-        {allChar && (
-          <Subnav
-            page={page}
-            id={id}
-            nextHandler={nextHandler}
-            prevHandler={prevHandler}
+    <DetailPageSectionLayout
+      link={"characters"}
+      title={"Main Characters"}
+      allData={allData}
+    >
+      <div className={styles.box}>
+        {mainChar.map((item, i) => (
+          <CharItem
+            key={i}
+            image={item.character.images.jpg.image_url}
+            name={item.character.name}
+            rounded={true}
           />
-        )}
-        <div className={styles.box}>
-          {mainChar.map((item, i) => (
-            <CharItem
-              key={i}
-              image={item.character.images.jpg.image_url}
-              name={item.character.name}
-              rounded={true}
-            />
-          ))}
-        </div>
-      </SectionLayout>
-    </div>
+        ))}
+      </div>
+    </DetailPageSectionLayout>
   );
 }
 

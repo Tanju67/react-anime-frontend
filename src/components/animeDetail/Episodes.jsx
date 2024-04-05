@@ -1,48 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Episodes.module.css";
-import SectionLayout from "../../shared/UIElements/SectionLayout";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import EpisodeItem from "./EpisodeItem";
-import Subnav from "./Subnav";
+import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
 
-function Episodes({ data, allEp }) {
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
-  const slicedData = allEp ? data : data.slice(0, 5);
-  const id = useParams().id;
-
-  const prevHandler = () => {
-    if (page === 1) return;
-    setPage((page) => page - 1);
-    navigate(`/episodes/${id}?page=${page - 1}`);
-  };
-  const nextHandler = () => {
-    setPage((page) => page + 1);
-    navigate(`/episodes/${id}?page=${page + 1}`);
-  };
+function Episodes({ data, allData }) {
+  const slicedData = allData ? data : data.slice(0, 5);
 
   return (
-    <SectionLayout className={styles.layout} title={"Episodes"}>
-      {!allEp && (
-        <Link to={`/episodes/${id}?page=${page}`} className={styles.link}>
-          See all episodes &rarr;
-        </Link>
-      )}
-      {allEp && (
-        <Subnav
-          page={page}
-          id={id}
-          nextHandler={nextHandler}
-          prevHandler={prevHandler}
-        />
-      )}
+    <DetailPageSectionLayout
+      link={"episodes"}
+      title={"Episodes"}
+      allData={allData}
+    >
       <div className={styles.container}>
         {slicedData.map((item, i) => (
-          <EpisodeItem key={i} data={item} allEp={allEp} />
+          <EpisodeItem key={i} data={item} allEp={allData} />
         ))}
-        {slicedData.length === 0 && <p>No episode found at page:{page}</p>}
+        {slicedData.length === 0 && <p>No episode found.</p>}
       </div>
-    </SectionLayout>
+    </DetailPageSectionLayout>
   );
 }
 

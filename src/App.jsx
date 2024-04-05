@@ -12,6 +12,9 @@ import ReviewsPage, { loader as reviewsLoader } from "./pages/ReviewsPage";
 import AllEpisodesPage, {
   loader as episodesLoader,
 } from "./pages/AllEpisodesPage";
+import AllCharactersPage, {
+  loader as charactersLoader,
+} from "./pages/AllCharactersPage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,11 @@ const router = createBrowserRouter([
         path: "episodes/:id",
         element: <AllEpisodesPage />,
         loader: episodesLoader,
+      },
+      {
+        path: "characters/:id",
+        element: <AllCharactersPage />,
+        loader: charactersLoader,
       },
     ],
   },

@@ -1,15 +1,19 @@
 .item {
   display: flex;
   flex-direction: column;
+  width: 15%;
 }
 
 .infoBox {
   flex: 2;
   color: #bbb;
+  text-align: center;
 }
 
 .imgBox {
   flex: 2;
+
+  text-align: center;
 }
 
 .item.rounded .imgBox img {

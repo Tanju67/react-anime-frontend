@@ -20,8 +20,8 @@ function ReviewItem({
 }) {
   const formattedDate = new Date(date).toLocaleDateString("en-EN", {
     year: "numeric",
-    month: "numeric",
-    day: "numeric",
+    month: "2-digit",
+    day: "2-digit",
   });
 
   const clickHandler = () => {

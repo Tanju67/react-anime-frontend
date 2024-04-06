@@ -51,4 +51,11 @@
 .about {
   font-size: 1.4rem;
   font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.birth {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }

@@ -28,8 +28,25 @@
   border-radius: 1rem;
   height: 25rem;
 }
-
 .hoverElement {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 50%;
+  height: 25rem;
+  width: 90%;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  border: 2px solid rgb(255, 215, 0);
+  transform: translateX(-50%);
+}
+
+.item.rounded .hoverElement {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;

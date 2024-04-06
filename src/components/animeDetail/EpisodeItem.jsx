@@ -11,8 +11,8 @@ function EpisodeItem({ data, allEp }) {
   const [error, setError] = useState(null);
   const formattedDate = new Date(data.aired).toLocaleDateString("en-EN", {
     year: "numeric",
-    month: "numeric",
-    day: "numeric",
+    month: "2-digit",
+    day: "2-digit",
   });
 
   const animeId = useParams().id;

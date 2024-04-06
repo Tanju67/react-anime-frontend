@@ -7,10 +7,10 @@ import AnimeReviews from "./AnimeReviews";
 import SimilarAnimes from "./SimilarAnimes";
 import Episodes from "./Episodes";
 import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
+import News from "./News";
 
 function AnimeDetail() {
   const data = useLoaderData();
-  console.log(data);
 
   return (
     <DetailPageLayout dataLoader={data}>
@@ -37,6 +37,11 @@ function AnimeDetail() {
       <Suspense fallback={<Spinner />}>
         <Await resolve={data.recommend}>
           {(loadedData) => <SimilarAnimes data={loadedData.data} />}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={data.news}>
+          {(loadedData) => <News data={loadedData.data} />}
         </Await>
       </Suspense>
     </DetailPageLayout>

@@ -1,0 +1,42 @@
+.page {
+  height: 100vh;
+}
+.subNav a {
+  color: #fff;
+  transition: all 0.3s;
+  padding: 1rem 4rem;
+  display: inline-block;
+}
+
+.subNav a:hover {
+  color: #aaa;
+}
+
+.container {
+  padding: 4rem;
+  display: flex;
+  gap: 4rem;
+}
+.news {
+  margin-bottom: 2rem;
+}
+
+.infoBox h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.author {
+  display: flex;
+  gap: 9rem;
+}
+.date {
+  display: flex;
+  gap: 2.1rem;
+  margin-bottom: 2rem;
+}
+
+.imgBox img {
+  width: 25rem;
+  height: 35rem;
+  object-fit: cover;
+}

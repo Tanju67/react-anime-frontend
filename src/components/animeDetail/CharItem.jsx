@@ -3,14 +3,17 @@ import styles from "./CharItem.module.css";
 import Logo from "../../shared/UIElements/Logo";
 import { useParams } from "react-router-dom";
 
-function CharItem({ image, name, rounded, charId }) {
+function CharItem({ image, name, rounded, charId, actor }) {
   const id = useParams().id;
   return (
     <div className={`${styles.item} ${rounded ? styles.rounded : ""}`}>
       <div className={styles.imgBox}>
         <img src={image} alt="" />
         <div className={styles.hoverElement}>
-          <Logo to={`/${id}/character/${charId}`} className={styles.hoverBtn} />
+          <Logo
+            to={actor ? `/${id}/actor/${charId}` : `/${id}/character/${charId}`}
+            className={styles.hoverBtn}
+          />
         </div>
       </div>
 

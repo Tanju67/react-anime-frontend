@@ -5,6 +5,7 @@ import Button from "../../shared/UIElements/Button";
 
 function Detail({ anime, onBg }) {
   const bg = anime?.images.jpg.large_image_url;
+
   useEffect(() => {
     onBg(bg);
   }, [bg]);

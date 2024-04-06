@@ -18,6 +18,8 @@ function VoiceActors({ data, allData }) {
             key={i}
             image={item.voice_actors[0]?.person.images.jpg.image_url}
             name={item.voice_actors[0]?.person.name}
+            charId={item.voice_actors[0]?.person.mal_id}
+            actor={true}
           />
         ))}
       </div>

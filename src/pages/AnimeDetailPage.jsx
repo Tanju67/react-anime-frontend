@@ -34,6 +34,10 @@ async function loadAnimeEpisodes(id, page) {
   return sendRequest(`https://api.jikan.moe/v4/anime/${id}/episodes`, true);
 }
 
+async function loadNews(id) {
+  return sendRequest(`https://api.jikan.moe/v4/anime/${id}/news`, true);
+}
+
 export async function loader({ request, params }) {
   const id = params.id;
   const page = 1;
@@ -43,5 +47,6 @@ export async function loader({ request, params }) {
     reviews: loadAnimeReviews(id, page),
     recommend: loadAnimeRecommend(id),
     episodes: loadAnimeEpisodes(id),
+    news: loadNews(id),
   });
 }

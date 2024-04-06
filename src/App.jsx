@@ -17,6 +17,11 @@ import AllCharactersPage, {
 } from "./pages/AllCharactersPage";
 import AllActorsPage, { loader as actorsLoader } from "./pages/AllActorsPage";
 import CharacterPage, { loader as charLoader } from "./pages/CharacterPage";
+import ActorDetailPage, { loader as actLoader } from "./pages/ActorDetailPage";
+import AllNewsPage, { loader as newsLoader } from "./pages/AllNewsPage";
+import NewsDetailPage, {
+  loader as singleNewsLoader,
+} from "./pages/NewsDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +64,21 @@ const router = createBrowserRouter([
         path: "actors/:id",
         element: <AllActorsPage />,
         loader: actorsLoader,
+      },
+      {
+        path: ":id/actor/:charId",
+        element: <ActorDetailPage />,
+        loader: actLoader,
+      },
+      {
+        path: "news/:id",
+        element: <AllNewsPage />,
+        loader: newsLoader,
+      },
+      {
+        path: ":id/newsDetail/:newsId",
+        element: <NewsDetailPage />,
+        loader: singleNewsLoader,
       },
     ],
   },

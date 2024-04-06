@@ -18,6 +18,7 @@ function MainCharacters({ data, allData }) {
             key={i}
             image={item.character.images.jpg.image_url}
             name={item.character.name}
+            charId={item.character.mal_id}
             rounded={true}
           />
         ))}

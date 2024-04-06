@@ -2,21 +2,21 @@ import React, { Suspense } from "react";
 import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 import Spinner from "../../shared/UIElements/Spinner";
 import { Await, useLoaderData } from "react-router-dom";
-import VoiceActors from "../animeDetail/VoiceActors";
+import CharacterDetail from "./CharacterDetail";
 
-function AllActors() {
+function Character() {
   const data = useLoaderData();
+  console.log(data);
+
   return (
-    <DetailPageLayout dataLoader={data}>
+    <DetailPageLayout dataLoader={data} showDetail={false}>
       <Suspense fallback={<Spinner />}>
-        <Await resolve={data.allCharacters}>
-          {(loadedData) => (
-            <VoiceActors data={loadedData.data} allData={true} />
-          )}
+        <Await resolve={data.character}>
+          {(loadedData) => <CharacterDetail data={loadedData.data} />}
         </Await>
       </Suspense>
     </DetailPageLayout>
   );
 }
 
-export default AllActors;
+export default Character;

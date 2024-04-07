@@ -19,9 +19,14 @@ function NewsDetailItem({ data }) {
         <Link to={`/anime/${id}`}>&larr; Anime Detail</Link>
       </div>
       <div className={styles.container}>
-        <div className={styles.imgBox}>
-          <img src={newsItem[0].images.jpg.image_url} alt={newsItem[0].title} />
-        </div>
+        {newsItem[0].images.jpg.image_url && (
+          <div className={styles.imgBox}>
+            <img
+              src={newsItem[0].images.jpg.image_url}
+              alt={newsItem[0].title}
+            />
+          </div>
+        )}
         <div className={styles.infoBox}>
           <h2>{newsItem[0].title}</h2>
           <p className={styles.author}>

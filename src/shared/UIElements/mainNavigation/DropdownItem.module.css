@@ -1,0 +1,27 @@
+.item {
+  color: #000;
+  display: flex;
+  border-bottom: 1px solid var(--clr-btn);
+  gap: 2rem;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+  padding: 1rem;
+  cursor: pointer;
+}
+.imgBox {
+}
+.infoBox p {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgBox img {
+  width: 4rem;
+  height: 5rem;
+  object-fit: cover;
+}
+
+.item:hover {
+  background-color: var(--clr-btn);
+}

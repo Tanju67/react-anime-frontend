@@ -10,10 +10,14 @@ function NewsItem({ item }) {
     day: "2-digit",
   });
 
+  console.log(item);
+
   return (
     <div className={styles.item}>
       <div className={styles.info}>
-        <img src={item.images.jpg.image_url} alt={"img"} />
+        {item.images.jpg.image_url && (
+          <img src={item.images.jpg.image_url} alt={"img"} />
+        )}
         <Link to={`/${id}/newsDetail/${item.mal_id}`}>{item.title}</Link>
       </div>
       <div className={styles.date}>{formattedDate}</div>

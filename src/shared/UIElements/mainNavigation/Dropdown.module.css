@@ -1,0 +1,24 @@
+.dropdown {
+  position: absolute;
+  background-color: rgba(255, 237, 205, 0.95);
+  width: 90%;
+  top: 3rem;
+  z-index: 1000000;
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.dropdown a {
+  color: black;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+  padding: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid var(--clr-btn);
+}
+
+.dropdown a:hover {
+  background-color: var(--clr-btn);
+}

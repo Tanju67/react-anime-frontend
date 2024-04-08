@@ -11,6 +11,7 @@ function MainCharacters({ data, allData }) {
       link={"characters"}
       title={"Main Characters"}
       allData={allData}
+      pagination={false}
     >
       <div className={styles.box}>
         {mainChar.map((item, i) => (

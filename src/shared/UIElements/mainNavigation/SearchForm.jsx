@@ -32,6 +32,7 @@ function SearchForm() {
   };
 
   useEffect(() => {
+    if (query === "") return;
     const controller = new AbortController();
     fetchData(controller.signal);
   }, [query]);

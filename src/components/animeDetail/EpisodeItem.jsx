@@ -51,7 +51,7 @@ function EpisodeItem({ data, allEp }) {
         </p>
 
         <p className={styles.score}>
-          ⭐<span>{data.score}</span>
+          {data.score && <span>⭐{data.score}</span>}
         </p>
         <p className={styles.aired}>
           <span>aired:</span>

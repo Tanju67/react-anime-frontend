@@ -22,6 +22,11 @@ import AllNewsPage, { loader as newsLoader } from "./pages/AllNewsPage";
 import NewsDetailPage, {
   loader as singleNewsLoader,
 } from "./pages/NewsDetailPage";
+import SearchResultsPage, {
+  loader as resultsLoader,
+} from "./pages/SearchResultsPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +84,19 @@ const router = createBrowserRouter([
         path: ":id/newsDetail/:newsId",
         element: <NewsDetailPage />,
         loader: singleNewsLoader,
+      },
+      {
+        path: "search-result",
+        element: <SearchResultsPage />,
+        loader: resultsLoader,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
       },
     ],
   },

@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  border-bottom: 1px solid #fff;
+  padding: 0.5rem 0;
+  gap: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.imgBox {
+  height: 7rem;
+}
+.imgBox img {
+  width: 5rem;
+  height: 100%;
+  object-fit: cover;
+}
+.infoBox {
+}
+.title {
+}
+.info {
+  display: flex;
+  gap: 1rem;
+}
+
+.item:hover {
+  background-color: #000;
+}

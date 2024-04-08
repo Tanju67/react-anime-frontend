@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.pagination span {
+  background-color: var(--clr-btn-tint);
+  width: 3rem;
+  height: 3rem;
+  color: #000;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.pagination span:hover {
+  background-color: var(--clr-btn-shade);
+}

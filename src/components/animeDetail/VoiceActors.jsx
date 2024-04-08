@@ -11,6 +11,7 @@ function VoiceActors({ data, allData }) {
       link={"actors"}
       title={"Voice Actors"}
       allData={allData}
+      pagination={false}
     >
       <div className={styles.box}>
         {mainChar.map((item, i) => (

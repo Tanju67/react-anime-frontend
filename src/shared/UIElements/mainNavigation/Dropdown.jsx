@@ -8,7 +8,14 @@ function Dropdown({ data, query, setQuery, isLoading }) {
   console.log(filteredData);
   return (
     <div className={styles.dropdown}>
-      {filteredData.length > 0 && <Link>See all result for "{query}"</Link>}
+      {filteredData.length > 0 && (
+        <Link
+          onClick={() => setQuery("")}
+          to={`/search-result?query=${query}&page=1&type=&min_score=&max_score=&status=`}
+        >
+          See all result for "{query}"
+        </Link>
+      )}
       {filteredData.map((item, i) => (
         <DropdownItem key={i} item={item} setQuery={setQuery} />
       ))}

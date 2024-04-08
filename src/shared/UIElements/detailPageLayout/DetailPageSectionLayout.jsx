@@ -4,7 +4,14 @@ import SectionLayout from "../SectionLayout";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Subnav from "../../../components/animeDetail/Subnav";
 
-function DetailPageSectionLayout({ children, allData, link, title }) {
+function DetailPageSectionLayout({
+  children,
+  allData,
+  link,
+  title,
+  home,
+  pagination = true,
+}) {
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const id = useParams().id;
@@ -33,6 +40,8 @@ function DetailPageSectionLayout({ children, allData, link, title }) {
             id={id}
             nextHandler={nextHandler}
             prevHandler={prevHandler}
+            home={home}
+            pagination={pagination}
           />
         )}
         {children}

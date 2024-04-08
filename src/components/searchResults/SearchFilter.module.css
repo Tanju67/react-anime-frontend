@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  background-color: #000;
+  gap: 4rem;
+  position: fixed;
+  width: 100%;
+  padding-left: 4rem;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl select {
+  width: 10rem;
+  height: 3rem;
+  text-align: center;
+  outline: none;
+  background-color: rgb(255, 237, 205);
+}
+
+.formControl label {
+  font-size: 1.4rem;
+}
+
+.filterBtn {
+  align-self: self-end;
+}

@@ -28,10 +28,19 @@ async function loadTopAnimeMovie() {
   );
 }
 
+async function loadWatchlist() {
+  const token = localStorage.getItem("token");
+  if (!token) return [];
+  return sendRequest(`http://localhost:5000/api/v1/anime`, true, true, {
+    Authorization: `Bearer ${token}`,
+  });
+}
+
 export async function loader() {
   return defer({
     data: loadTopAnime(),
     upcoming: loadUpcomingSeason(),
     topMovie: loadTopAnimeMovie(),
+    watchlist: loadWatchlist(),
   });
 }

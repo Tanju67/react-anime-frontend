@@ -61,3 +61,15 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
+
+.trailerBtn {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trailerBtn svg {
+  font-size: 1.8rem;
+}

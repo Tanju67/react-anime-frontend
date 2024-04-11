@@ -2,9 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .navMenu a {
   color: #fff;
+  transition: all 0.3s;
+}
+
+.navMenu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s;
+}
+
+.navMenu li:hover {
+  background-color: var(--clr-btn-tint);
+  color: #000;
+}
+
+.navMenu li:hover a {
+  color: #000;
 }

@@ -26,7 +26,16 @@ import SearchResultsPage, {
   loader as resultsLoader,
 } from "./pages/SearchResultsPage";
 import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import RegisterPage, { action as registerAction } from "./pages/RegisterPage";
+import { useDispatch } from "react-redux";
+import {
+  fetchCurrentUser,
+  fetchUserAllWatchlist,
+} from "./shared/store/auth-action";
+import { useEffect } from "react";
+import WatchlistPage, {
+  loader as watchlistLoader,
+} from "./pages/WatchlistPage";
 
 const router = createBrowserRouter([
   {
@@ -97,12 +106,24 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
+        action: registerAction,
+      },
+      {
+        path: "watchlist",
+        element: <WatchlistPage />,
+        loader: watchlistLoader,
       },
     ],
   },
 ]);
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+    dispatch(fetchUserAllWatchlist());
+  }, []);
   return <RouterProvider router={router} />;
 }
 

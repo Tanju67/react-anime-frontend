@@ -37,7 +37,7 @@ function NextArrow(props) {
   );
 }
 
-function Carousel({ animeList, similar }) {
+function Carousel({ animeList, similar, watchlist }) {
   const settings = {
     dots: false,
     infinite: false,
@@ -75,11 +75,22 @@ function Carousel({ animeList, similar }) {
   };
   return (
     <div className="slider-container">
-      <Slider {...settings}>
-        {animeList.map((item, i) => (
-          <SliderItem similar={similar} item={item} key={i} />
-        ))}
-      </Slider>
+      {animeList?.length > 0 && (
+        <Slider id={"box"} className={styles.box} {...settings}>
+          {animeList?.map((item, i) => (
+            <SliderItem
+              similar={similar}
+              item={item}
+              key={i}
+              watchlist={watchlist}
+            />
+          ))}
+        </Slider>
+      )}
+
+      {animeList?.length === 0 && (
+        <p style={{ color: "#bbb" }}>Your watchlist is empty.</p>
+      )}
     </div>
   );
 }

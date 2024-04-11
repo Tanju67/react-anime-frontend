@@ -7,8 +7,7 @@ import MainNavigation from "../../shared/UIElements/mainNavigation/MainNavigatio
 function Error() {
   const error = useRouteError();
   let title = "An error occured!";
-  let message = "Something went wrong!";
-  console.log(error);
+  let message = error?.data?.message || "Something went wrong!";
 
   if (error.status === 404) {
     title = "Not found";

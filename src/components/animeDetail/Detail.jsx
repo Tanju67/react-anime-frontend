@@ -1,10 +1,59 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
 import styles from "./Detail.module.css";
 import { Link } from "react-router-dom";
 import Button from "../../shared/UIElements/Button";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useControlWatchlist } from "../../shared/hooks/useControlWatchlist";
 
 function Detail({ anime, onBg }) {
   const bg = anime?.images.jpg.large_image_url;
+  const navigate = useNavigate();
+  const idAnime = useParams().id;
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const [isWatchlist] = useControlWatchlist(idAnime);
+
+  const addWatchlistHandler = async () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+    const token = localStorage.getItem("token");
+    try {
+      fetch("http://localhost:5000/api/v1/anime", {
+        method: "POST",
+        body: JSON.stringify({
+          title: anime?.title_english || anime?.title,
+          image: anime?.images.jpg.large_image_url,
+          animeId: anime.mal_id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      navigate("/watchlist");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteFromWatchlist = () => {
+    const token = localStorage.getItem("token");
+    try {
+      fetch("http://localhost:5000/api/v1/anime/" + idAnime, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      navigate("/watchlist");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     onBg(bg);
@@ -30,8 +79,13 @@ function Detail({ anime, onBg }) {
             <Button to={`/trailer/${anime.mal_id}`} size={"sm"} rounded={true}>
               Watch Trailer
             </Button>
-            <Button size={"sm"} rounded={true}>
-              Add Watchlist
+
+            <Button
+              onClick={isWatchlist ? deleteFromWatchlist : addWatchlistHandler}
+              size={"sm"}
+              rounded={true}
+            >
+              {isWatchlist ? "Delete from watchlist" : "Add to watchlist"}
             </Button>
           </div>
 

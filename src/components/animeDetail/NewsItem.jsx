@@ -10,8 +10,6 @@ function NewsItem({ item }) {
     day: "2-digit",
   });
 
-  console.log(item);
-
   return (
     <div className={styles.item}>
       <div className={styles.info}>

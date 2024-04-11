@@ -11,6 +11,7 @@ function DetailPageSectionLayout({
   title,
   home,
   pagination = true,
+  pageLink,
 }) {
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
@@ -19,11 +20,21 @@ function DetailPageSectionLayout({
   const prevHandler = () => {
     if (page === 1) return;
     setPage((page) => page - 1);
-    navigate(`/${link}/${id}?page=${page - 1}`);
+    // navigate(`/${link}/${id}?page=${page - 1}`);
+    navigate(
+      pageLink
+        ? `${pageLink}?page=${page - 1}`
+        : `/${link}/${id}?page=${page - 1}`
+    );
   };
   const nextHandler = () => {
     setPage((page) => page + 1);
-    navigate(`/${link}/${id}?page=${page + 1}`);
+    //navigate(`/${link}/${id}?page=${page + 1}`);
+    navigate(
+      pageLink
+        ? `${pageLink}?page=${page + 1}`
+        : `/${link}/${id}?page=${page + 1}`
+    );
   };
 
   return (

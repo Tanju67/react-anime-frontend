@@ -1,8 +1,15 @@
 import { json } from "react-router-dom";
 
-export async function sendRequest(url, timeout = false) {
+export async function sendRequest(
+  url,
+  timeout = false,
+  server = false,
+  headers
+) {
   timeout ? await new Promise((resolve) => setTimeout(resolve, 1500)) : null;
-  const response = await fetch(url);
+  const response = !server
+    ? await fetch(url)
+    : await fetch(url, { headers: headers });
 
   if (!response.ok) {
     if (response.status === 429) {

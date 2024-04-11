@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SlideItem.module.css";
 import Button from "../../shared/UIElements/Button";
 import { Link } from "react-router-dom";
+import { PiTelevision } from "react-icons/pi";
 
 function SlideItem({
   title,
@@ -38,8 +39,8 @@ function SlideItem({
           <span>⭐{score} / 10</span> <span>📅 {year}</span>
         </p>
         <p className={styles.desc}>{synopsis.slice(0, 300) + "..."}</p>
-        <Button to={`trailer/${id}`} size="md">
-          Watch Trailer
+        <Button className={styles.trailerBtn} to={`trailer/${id}`} size="md">
+          <PiTelevision /> <span>Watch Trailer</span>
         </Button>
       </div>
       <div className={styles.imgBox}></div>

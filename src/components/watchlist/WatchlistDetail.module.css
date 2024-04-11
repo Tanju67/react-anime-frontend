@@ -1,0 +1,11 @@
+.page {
+  min-height: 93vh;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 5rem;
+  margin-top: 4rem;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import AnimeDetail from "../components/animeDetail/AnimeDetail";
-import { defer } from "react-router-dom";
+import { defer, redirect, json } from "react-router-dom";
 import { sendRequest } from "../shared/utils/sendRequest";
 
 function AnimeDetailPage() {
@@ -38,6 +38,14 @@ async function loadNews(id) {
   return sendRequest(`https://api.jikan.moe/v4/anime/${id}/news`, true);
 }
 
+async function loadWatchlist() {
+  const token = localStorage.getItem("token");
+  if (!token) return [];
+  return sendRequest(`http://localhost:5000/api/v1/anime`, true, true, {
+    Authorization: `Bearer ${token}`,
+  });
+}
+
 export async function loader({ request, params }) {
   const id = params.id;
   const page = 1;
@@ -48,5 +56,6 @@ export async function loader({ request, params }) {
     recommend: loadAnimeRecommend(id),
     episodes: loadAnimeEpisodes(id),
     news: loadNews(id),
+    watchlist: loadWatchlist(),
   });
 }

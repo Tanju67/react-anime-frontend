@@ -5,7 +5,6 @@ import styles from "./News.module.css";
 
 function News({ allData, data }) {
   const mainChar = allData ? data : data.slice(0, 3);
-  console.log(data);
 
   return (
     <DetailPageSectionLayout

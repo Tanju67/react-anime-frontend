@@ -5,9 +5,12 @@ import SectionLayout from "../../shared/UIElements/SectionLayout";
 import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
 import Header from "./Header";
+import { useSelector } from "react-redux";
 
 function Home() {
-  const { data, upcoming, topMovie } = useLoaderData();
+  const { data, upcoming, topMovie, watchlist } = useLoaderData();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const userWatchlist = useSelector((state) => state.auth.userWatchlist);
 
   return (
     <div className={styles.page}>
@@ -26,6 +29,11 @@ function Home() {
           )}
         </Await>
       </Suspense>
+      {isLoggedIn && (
+        <SectionLayout title={"Your Watchlist"}>
+          <Carousel animeList={userWatchlist} watchlist={true} />
+        </SectionLayout>
+      )}
       <Suspense fallback={<Spinner />}>
         <Await resolve={topMovie}>
           {(loadedData) => (

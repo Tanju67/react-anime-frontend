@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Subnav.module.css";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import styles from "./Subnav.module.css";
 
 function Subnav({ prevHandler, nextHandler, page, id, home, pagination }) {
   return (
@@ -17,11 +17,11 @@ function Subnav({ prevHandler, nextHandler, page, id, home, pagination }) {
       )}
       {pagination && (
         <div className={styles.pagination}>
-          <i className={styles.link} onClick={prevHandler}>
+          <i className={styles.pag} onClick={prevHandler}>
             {"<"}
           </i>
           <span> Page: {page} </span>
-          <i className={styles.link} onClick={nextHandler}>
+          <i className={styles.pag} onClick={nextHandler}>
             {">"}
           </i>
         </div>

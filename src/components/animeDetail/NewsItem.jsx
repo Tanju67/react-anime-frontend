@@ -1,14 +1,10 @@
-import React from "react";
-import styles from "./NewsItem.module.css";
+/* eslint-disable react/prop-types */
 import { Link, useParams } from "react-router-dom";
+import styles from "./NewsItem.module.css";
+import { formatDate } from "../../shared/utils/helper";
 
 function NewsItem({ item }) {
   const id = useParams().id;
-  const formattedDate = new Date(item.date).toLocaleDateString("en-EN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
 
   return (
     <div className={styles.item}>
@@ -18,7 +14,7 @@ function NewsItem({ item }) {
         )}
         <Link to={`/${id}/newsDetail/${item.mal_id}`}>{item.title}</Link>
       </div>
-      <div className={styles.date}>{formattedDate}</div>
+      <div className={styles.date}>{formatDate(item.date)}</div>
     </div>
   );
 }

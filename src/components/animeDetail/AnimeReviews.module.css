@@ -2,11 +2,16 @@
   height: fit-content;
 }
 
+.box {
+  min-height: 90vh;
+}
+
 .container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   row-gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .link {

@@ -1,7 +1,7 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { defer } from "react-router-dom";
 import AllActors from "../components/allActors/AllActors";
 import { sendRequest } from "../shared/utils/sendRequest";
-import { defer } from "react-router-dom";
 
 function AllActorsPage() {
   return <AllActors />;

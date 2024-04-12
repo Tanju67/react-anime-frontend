@@ -17,7 +17,7 @@
   padding: 0.5rem 1rem;
   border: none;
   outline: none;
-  background-color: #ffedcd;
+  background-color: var(--clr-btn-light);
 }
 
 .search input::placeholder {

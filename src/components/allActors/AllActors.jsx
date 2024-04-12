@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
+import { Await, useLoaderData } from "react-router-dom";
 import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 import Spinner from "../../shared/UIElements/Spinner";
-import { Await, useLoaderData } from "react-router-dom";
 import VoiceActors from "../animeDetail/VoiceActors";
 
 function AllActors() {

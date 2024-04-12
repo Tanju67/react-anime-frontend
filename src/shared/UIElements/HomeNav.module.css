@@ -1,0 +1,14 @@
+.subNav {
+  padding: 1rem 4rem;
+  background-color: rgba(10, 10, 10, 0.95);
+  width: 100%;
+  position: fixed;
+}
+.subNav a {
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.subNav a:hover {
+  color: #aaa;
+}

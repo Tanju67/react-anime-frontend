@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
 import styles from "./DetailPageSectionLayout.module.css";
 import SectionLayout from "../SectionLayout";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import Subnav from "../../../components/animeDetail/Subnav";
 
 function DetailPageSectionLayout({
@@ -11,38 +14,38 @@ function DetailPageSectionLayout({
   title,
   home,
   pagination = true,
-  pageLink,
+  isAnimeExist,
+  showSubNav = true,
 }) {
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(+searchParams.get("page") || 1);
   const id = useParams().id;
 
   const prevHandler = () => {
     if (page === 1) return;
     setPage((page) => page - 1);
-    // navigate(`/${link}/${id}?page=${page - 1}`);
-    navigate(
-      pageLink
-        ? `${pageLink}?page=${page - 1}`
-        : `/${link}/${id}?page=${page - 1}`
-    );
+    setSearchParams((prev) => {
+      prev.set("page", page - 1);
+      return prev;
+    });
   };
   const nextHandler = () => {
     setPage((page) => page + 1);
-    //navigate(`/${link}/${id}?page=${page + 1}`);
-    navigate(
-      pageLink
-        ? `${pageLink}?page=${page + 1}`
-        : `/${link}/${id}?page=${page + 1}`
-    );
+    setSearchParams((prev) => {
+      prev.set("page", page + 1);
+      return prev;
+    });
   };
 
   return (
     <div className={styles.section}>
       <SectionLayout className={styles.layout} title={title}>
-        {!allData && (
+        {!allData && isAnimeExist && (
           <Link to={`/${link}/${id}?page=${page}`} className={styles.link}>
-            See all {link} &rarr;
+            <span>
+              <FaEye />
+            </span>
+            <span>See all {link} &rarr;</span>
           </Link>
         )}
         {allData && (
@@ -56,6 +59,16 @@ function DetailPageSectionLayout({
           />
         )}
         {children}
+        {allData && isAnimeExist && showSubNav && (
+          <Subnav
+            page={page}
+            id={id}
+            nextHandler={nextHandler}
+            prevHandler={prevHandler}
+            home={home}
+            pagination={pagination}
+          />
+        )}
       </SectionLayout>
     </div>
   );

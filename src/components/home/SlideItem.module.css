@@ -12,13 +12,12 @@
 
 .infoBox h2 {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: var(--size-main-title);
   transition: all 0.3s;
 }
 
 .infoBox h2:hover {
   color: var(--clr-btn);
-  text-decoration: underline;
 }
 
 .info {
@@ -33,10 +32,6 @@
 
 .imgBox {
   flex: 2;
-}
-
-.imgBox img {
-  height: 40rem;
 }
 
 .btnBox button {

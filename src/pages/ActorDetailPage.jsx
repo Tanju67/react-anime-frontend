@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
 import ActorDetail from "../components/actorDetail/ActorDetail";
 import { sendRequest } from "../shared/utils/sendRequest";
 import { defer } from "react-router-dom";
@@ -17,7 +17,7 @@ async function loadPerson(charId) {
   return sendRequest(`https://api.jikan.moe/v4/people/${charId}`);
 }
 
-export async function loader({ request, params }) {
+export async function loader({ params }) {
   const charId = params.charId;
   const id = params.id;
   return defer({

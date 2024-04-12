@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import styles from "./SliderItem.module.css";
 import Logo from "../Logo";
 

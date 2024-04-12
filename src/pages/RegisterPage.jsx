@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
 import { redirect, json } from "react-router-dom";
 import Register from "../components/register/Register";
 

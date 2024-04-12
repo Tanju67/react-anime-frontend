@@ -1,10 +1,11 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import styles from "./VoiceActors.module.css";
 import CharItem from "./CharItem";
 import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
 
 function VoiceActors({ data, allData }) {
-  const mainChar = allData ? data : data.filter((item) => item.role === "Main");
+  // const mainChar = allData ? data : data.filter((item) => item.role === "Main");
+  const mainChar = allData ? data : data.slice(0, 6);
 
   return (
     <DetailPageSectionLayout
@@ -12,6 +13,7 @@ function VoiceActors({ data, allData }) {
       title={"Voice Actors"}
       allData={allData}
       pagination={false}
+      isAnimeExist={mainChar.length > 0}
     >
       <div className={styles.box}>
         {mainChar.map((item, i) => (

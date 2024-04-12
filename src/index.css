@@ -1,7 +1,7 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 :root {
   --clr-primary: #000;
@@ -10,13 +10,16 @@
   --clr-secondary: #261c2c;
   --clr-secondary-shade: #1e1623;
   --clr-secondary-tint: #514956;
-  --clr-btn: #fda403;
-  --clr-btn-shade: #ca8302;
-  --clr-btn-tint: #fdb635;
-  --clr-text-dark: #222;
-  --clr-text-normal: #444;
-  --clr-text-light: #666;
-  --clr-white: #fff;
+  --clr-btn: #c27306;
+  --clr-btn-shade: #9b5c05;
+  --clr-btn-tint: #ce8f38;
+  --clr-btn-light: #edd5b4;
+  --clr-logo: #c27306;
+  --clr-hover: gold;
+  --clr-title: #fff;
+  --clr-text: #ccc;
+  --size-main-title: 3rem;
+  --size-sub-title: 2.5rem;
 }
 
 *,
@@ -39,7 +42,9 @@ body {
   font-weight: 400;
   line-height: 1.7;
   font-size: 1.6rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Lato", sans-serif;
+  background-color: #111;
+  min-width: 100vh;
 }
 
 ul {
@@ -90,7 +95,7 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #161616;
+  background: #111;
 }
 
 /* Handle */
@@ -101,6 +106,14 @@ a {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+.error {
+  text-align: center;
+}
+
+.error h2 {
+  font-size: 5rem;
+  margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 850px) {

@@ -6,7 +6,7 @@
 
 .infoBox {
   flex: 2;
-  color: #bbb;
+  color: var(--clr-text);
   text-align: center;
 }
 
@@ -17,8 +17,8 @@
 }
 
 .item.rounded .imgBox img {
-  height: 15rem;
-  width: 15rem;
+  height: 17rem;
+  width: 17rem;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
@@ -44,7 +44,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
-  border: 2px solid rgb(255, 215, 0);
+  border: 2px solid var(--clr-hover);
   transform: translateX(-50%);
 }
 
@@ -53,8 +53,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 50%;
-  width: 15rem;
-  height: 15rem;
+  width: 17rem;
+  height: 17rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -62,7 +62,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
-  border: 2px solid rgb(255, 215, 0);
+  border: 2px solid var(--clr-hover);
   transform: translateX(-50%);
 }
 
@@ -76,7 +76,7 @@
 }
 
 .hoverBtn:hover {
-  background-color: rgb(255, 215, 0);
+  background-color: var(--clr-hover);
 }
 
 .imgBox:hover .hoverElement {

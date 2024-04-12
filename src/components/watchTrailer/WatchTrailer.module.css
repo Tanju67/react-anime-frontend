@@ -8,26 +8,16 @@
 }
 
 .video iframe {
-  width: 60%;
-  height: 70vh;
+  width: 50%;
+  height: 60vh;
 }
 
 .header {
-  color: #fff;
+  color: var(--clr-title);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   margin-bottom: 2rem;
-}
-
-.subNav {
-  text-align: start;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding-left: 4rem;
-}
-
-.subNav a {
-  color: #fff;
+  margin-top: 4rem;
 }

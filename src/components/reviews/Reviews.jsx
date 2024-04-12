@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
 import AnimeReviews from "../animeDetail/AnimeReviews";

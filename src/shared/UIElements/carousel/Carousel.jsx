@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "./Carousel.module.css";
+/* eslint-disable react/prop-types */
 import Slider from "react-slick";
 import SliderItem from "./SliderItem";
 
@@ -76,7 +75,7 @@ function Carousel({ animeList, similar, watchlist }) {
   return (
     <div className="slider-container">
       {animeList?.length > 0 && (
-        <Slider id={"box"} className={styles.box} {...settings}>
+        <Slider {...settings}>
           {animeList?.map((item, i) => (
             <SliderItem
               similar={similar}

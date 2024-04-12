@@ -51,6 +51,7 @@
 
 .icon svg {
   transition: all 0.3s;
+  margin-left: 1rem;
 }
 
 .icon svg:hover {

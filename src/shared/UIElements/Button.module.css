@@ -4,6 +4,8 @@
   background-color: var(--clr-btn);
   cursor: pointer;
   transition: all 0.3s;
+
+  font-weight: bold;
 }
 
 .btn_sm {

@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import styles from "./SimilarAnimes.module.css";
 import SectionLayout from "../../shared/UIElements/SectionLayout";
 import Carousel from "../../shared/UIElements/carousel/Carousel";

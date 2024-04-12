@@ -1,46 +1,43 @@
-.container {
-  /* height: 100vh; */
-}
-
-.subNav {
-  padding: 1rem 4rem;
-  background-color: rgba(10, 10, 10, 0.95);
-  width: 100%;
-  position: fixed;
-}
-.subNav a {
-  color: #fff;
-  transition: all 0.3s;
-}
-
-.subNav a:hover {
-  color: #aaa;
-}
 .content {
   padding: 8rem 4rem;
   display: flex;
   gap: 5rem;
   height: 93vh; /* overflow-y: scroll; */
 }
-.imgBox {
-}
 
 .imgBox img {
   height: 40rem;
   border-radius: 1rem;
 }
-.infoBox {
-}
 
 .title {
-  color: #fff;
+  color: var(--clr-title);
+  font-size: var(--size-main-title);
 }
 .year {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
 }
+
 .desc {
   margin-bottom: 2rem;
   display: flex;
   gap: 2rem;
+}
+
+.desc p {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.desc p span {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 }
 .synopsis {
   font-size: 1.4rem;
@@ -51,6 +48,12 @@
   display: flex;
   gap: 4rem;
 }
+.genre span {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
 
 .genre ul {
   display: flex;
@@ -60,4 +63,21 @@
 .btnBox {
   display: flex;
   gap: 2rem;
+}
+
+.btnBox a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btnBox a span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnBox svg {
+  font-size: 2rem;
 }

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { Form, Link } from "react-router-dom";
 import styles from "./AuthForm.module.css";
 import Button from "../Button";
-import { Form, Link } from "react-router-dom";
 import Spinner from "../Spinner";
 
 function AuthForm({

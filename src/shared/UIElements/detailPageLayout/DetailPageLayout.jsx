@@ -1,10 +1,17 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { Suspense, useState } from "react";
 import styles from "./DetailPageLayout.module.css";
 import { Await } from "react-router-dom";
 import Detail from "../../../components/animeDetail/Detail";
 import Spinner from "../Spinner";
 
-function DetailPageLayout({ children, dataLoader, showDetail = true }) {
+function DetailPageLayout({
+  children,
+  dataLoader,
+  showDetail = true,
+  showBg = true,
+}) {
   const [bgImg, setBgImg] = useState("");
   const bgHandler = (bg) => {
     setBgImg(bg);
@@ -12,16 +19,20 @@ function DetailPageLayout({ children, dataLoader, showDetail = true }) {
 
   return (
     <div
-      style={{
-        backgroundImage: `linear-gradient(
+      style={
+        showBg
+          ? {
+              backgroundImage: `linear-gradient(
 to right,
 rgba(10,10,10, .95), rgba(10,10,10, .95)
 ),url(${bgImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundAttachment: "fixed",
+            }
+          : {}
+      }
       className={styles.page}
     >
       {showDetail && (

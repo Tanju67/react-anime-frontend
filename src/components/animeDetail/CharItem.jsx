@@ -1,7 +1,7 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import { useParams } from "react-router-dom";
 import styles from "./CharItem.module.css";
 import Logo from "../../shared/UIElements/Logo";
-import { useParams } from "react-router-dom";
 
 function CharItem({ image, name, rounded, charId, actor }) {
   const id = useParams().id;

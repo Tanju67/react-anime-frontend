@@ -28,13 +28,11 @@
 
 .infoBox {
   flex: 1;
-  font-size: 1.4rem;
-  color: #fff;
+  color: var(--clr-text);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-
   width: 100%;
 }
 
@@ -81,7 +79,6 @@
   .imgBox {
     flex: 1;
     height: 25rem;
-
     display: flex;
   }
   .imgBox img {
@@ -91,7 +88,7 @@
   }
 
   .infoBox {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -100,7 +97,7 @@
     height: 30rem;
   }
   .infoBox {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 

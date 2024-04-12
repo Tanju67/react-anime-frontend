@@ -7,7 +7,7 @@
 }
 
 .link:hover {
-  color: var(--clr-btn-tint);
+  color: var(--clr-hover);
 }
 
 .header {
@@ -23,16 +23,22 @@
 }
 
 .pagination i {
-  background-color: var(--clr-btn-tint);
+  background-color: var(--clr-hover);
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
+  transition: all 0.3s;
 }
 
 .pagination a:hover {
-  background-color: var(--clr-btn-shade);
+  background-color: var(--clr-hover);
   color: black;
+}
+
+.pag:hover {
+  background-color: rgb(155, 133, 8);
 }

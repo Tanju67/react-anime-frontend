@@ -1,6 +1,6 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { defer } from "react-router-dom";
 import AnimeDetail from "../components/animeDetail/AnimeDetail";
-import { defer, redirect, json } from "react-router-dom";
 import { sendRequest } from "../shared/utils/sendRequest";
 
 function AnimeDetailPage() {
@@ -19,7 +19,8 @@ async function loadAnimeStaff(id) {
 
 async function loadAnimeReviews(id, page) {
   return sendRequest(
-    `https://api.jikan.moe/v4/anime/${id}/reviews?page=${page}`
+    `https://api.jikan.moe/v4/anime/${id}/reviews?page=${page}`,
+    true
   );
 }
 
@@ -30,23 +31,17 @@ async function loadAnimeRecommend(id) {
   );
 }
 
-async function loadAnimeEpisodes(id, page) {
+async function loadAnimeEpisodes(id) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   return sendRequest(`https://api.jikan.moe/v4/anime/${id}/episodes`, true);
 }
 
 async function loadNews(id) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   return sendRequest(`https://api.jikan.moe/v4/anime/${id}/news`, true);
 }
 
-async function loadWatchlist() {
-  const token = localStorage.getItem("token");
-  if (!token) return [];
-  return sendRequest(`http://localhost:5000/api/v1/anime`, true, true, {
-    Authorization: `Bearer ${token}`,
-  });
-}
-
-export async function loader({ request, params }) {
+export async function loader({ params }) {
   const id = params.id;
   const page = 1;
   return defer({
@@ -56,6 +51,5 @@ export async function loader({ request, params }) {
     recommend: loadAnimeRecommend(id),
     episodes: loadAnimeEpisodes(id),
     news: loadNews(id),
-    watchlist: loadWatchlist(),
   });
 }

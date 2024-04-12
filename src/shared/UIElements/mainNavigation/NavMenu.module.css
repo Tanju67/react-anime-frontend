@@ -20,10 +20,5 @@
 }
 
 .navMenu li:hover {
-  background-color: var(--clr-btn-tint);
-  color: #000;
-}
-
-.navMenu li:hover a {
-  color: #000;
+  background-color: var(--clr-btn);
 }

@@ -1,21 +1,23 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
 import NewsItem from "./NewsItem";
-import styles from "./News.module.css";
 
 function News({ allData, data }) {
-  const mainChar = allData ? data : data.slice(0, 3);
+  const newsData = allData ? data : data.slice(0, 3);
 
   return (
     <DetailPageSectionLayout
       link={"news"}
       title={"Anime News"}
       allData={allData}
+      isAnimeExist={newsData.length > 0}
+      showSubNav={false}
     >
-      <div className={styles.box}>
-        {mainChar.map((item, i) => (
+      <div>
+        {newsData.map((item, i) => (
           <NewsItem key={i} item={item} />
         ))}
+        {newsData.length === 0 && <p>No news found.</p>}
       </div>
     </DetailPageSectionLayout>
   );

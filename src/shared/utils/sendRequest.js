@@ -6,7 +6,7 @@ export async function sendRequest(
   server = false,
   headers
 ) {
-  timeout ? await new Promise((resolve) => setTimeout(resolve, 1500)) : null;
+  timeout ? await new Promise((resolve) => setTimeout(resolve, 1050)) : null;
   const response = !server
     ? await fetch(url)
     : await fetch(url, { headers: headers });

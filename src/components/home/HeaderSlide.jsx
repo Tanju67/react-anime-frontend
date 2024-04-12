@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "./HeaderSlide.module.css";
+/* eslint-disable react/prop-types */
 import Slider from "react-slick";
 import SlideItem from "./SlideItem";
 

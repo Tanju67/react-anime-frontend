@@ -1,6 +1,6 @@
-import React from "react";
-import { sendRequest } from "../shared/utils/sendRequest";
+/* eslint-disable react-refresh/only-export-components */
 import { defer } from "react-router-dom";
+import { sendRequest } from "../shared/utils/sendRequest";
 import AllNews from "../components/allnews/AllNews";
 
 function AllNewsPage() {

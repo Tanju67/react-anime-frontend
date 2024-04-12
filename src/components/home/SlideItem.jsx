@@ -1,19 +1,10 @@
-import React from "react";
-import styles from "./SlideItem.module.css";
-import Button from "../../shared/UIElements/Button";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { PiTelevision } from "react-icons/pi";
+import styles from "./SlideItem.module.css";
+import Button from "../../shared/UIElements/Button";
 
-function SlideItem({
-  title,
-  synopsis,
-  score,
-  genre,
-  year,
-  image,
-  trailer,
-  id,
-}) {
+function SlideItem({ title, synopsis, score, year, image, id }) {
   return (
     <div
       className={styles.item}

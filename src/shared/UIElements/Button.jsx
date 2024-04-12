@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Button.module.css";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import styles from "./Button.module.css";
 
 function Button({ children, className, type, size, to, rounded, onClick }) {
   if (to) {

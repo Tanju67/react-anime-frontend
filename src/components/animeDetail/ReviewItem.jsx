@@ -1,8 +1,9 @@
-import React from "react";
-import styles from "./ReviewItem.module.css";
+/* eslint-disable react/prop-types */
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
+import styles from "./ReviewItem.module.css";
 import Button from "../../shared/UIElements/Button";
+import { formatDate } from "../../shared/utils/helper";
 
 function ReviewItem({
   image,
@@ -18,12 +19,6 @@ function ReviewItem({
   handleSelectedReview,
   readmore,
 }) {
-  const formattedDate = new Date(date).toLocaleDateString("en-EN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-
   const clickHandler = () => {
     readmore ? onClsModal() : onShowModal();
     handleSelectedReview({
@@ -47,7 +42,7 @@ function ReviewItem({
             <span> ⭐{score}/10 </span>
           </div>
 
-          <span> {formattedDate} </span>
+          <span> {formatDate(date)} </span>
         </div>
         <div className={styles.content}>
           {spoiler && <p>SPOILER</p>}

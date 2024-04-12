@@ -1,6 +1,7 @@
-import React, { Suspense } from "react";
-import Spinner from "../../shared/UIElements/Spinner";
+import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+
+import Spinner from "../../shared/UIElements/Spinner";
 import MainCharacters from "./MainCharacters";
 import VoiceActors from "./VoiceActors";
 import AnimeReviews from "./AnimeReviews";

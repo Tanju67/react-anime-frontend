@@ -1,6 +1,6 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { defer } from "react-router-dom";
 import Reviews from "../components/reviews/Reviews";
-import { defer, json } from "react-router-dom";
 import { sendRequest } from "../shared/utils/sendRequest";
 
 function ReviewsPage() {

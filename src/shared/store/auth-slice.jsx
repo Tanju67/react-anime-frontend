@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { action } from "../../pages/RegisterPage";
 
 const authSlice = createSlice({
   name: "auth",

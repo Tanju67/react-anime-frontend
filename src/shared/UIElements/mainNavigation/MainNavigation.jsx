@@ -7,7 +7,7 @@ import NavMenu from "./NavMenu";
 function MainNavigation() {
   return (
     <nav className={styles.mainNav}>
-      <Logo text={true} />
+      <Logo text={true} reel={true} />
       <SerachForm />
       <NavMenu />
     </nav>

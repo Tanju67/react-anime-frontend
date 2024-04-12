@@ -1,14 +1,15 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import { Await, useLoaderData } from "react-router-dom";
 import styles from "./Home.module.css";
+
 import Carousel from "../../shared/UIElements/carousel/Carousel";
 import SectionLayout from "../../shared/UIElements/SectionLayout";
-import { Await, useLoaderData } from "react-router-dom";
 import Spinner from "../../shared/UIElements/Spinner";
 import Header from "./Header";
-import { useSelector } from "react-redux";
 
 function Home() {
-  const { data, upcoming, topMovie, watchlist } = useLoaderData();
+  const { data, upcoming, topMovie } = useLoaderData();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userWatchlist = useSelector((state) => state.auth.userWatchlist);
 

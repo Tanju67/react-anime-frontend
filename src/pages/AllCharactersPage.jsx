@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
 import { defer } from "react-router-dom";
 import AllCharacters from "../components/allCharacters/AllCharacters";
 import { sendRequest } from "../shared/utils/sendRequest";

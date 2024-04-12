@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+/* eslint-disable no-unused-vars */
+import { Suspense } from "react";
 import styles from "./NewsDetail.module.css";
 import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 import Spinner from "../../shared/UIElements/Spinner";
@@ -9,7 +10,7 @@ function NewsDetail() {
   const data = useLoaderData();
 
   return (
-    <DetailPageLayout dataLoader={data} showDetail={false}>
+    <DetailPageLayout dataLoader={data} showDetail={false} showBg={false}>
       <Suspense fallback={<Spinner />}>
         <Await resolve={data.news}>
           {(loadedData) => <NewsDetailItem data={loadedData.data} />}

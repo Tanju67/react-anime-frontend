@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import styles from "./AnimeReviews.module.css";
 import ReviewItem from "./ReviewItem";
 import Modal from "../../shared/UIElements/Modal";
@@ -26,6 +27,7 @@ function AnimeReviews({ data, allData }) {
       link={"reviews"}
       title={"Anime Reviews"}
       allData={allData}
+      isAnimeExist={slicedData?.length > 0}
     >
       <div className={styles.container}>
         {slicedData.map((item) => (
@@ -43,6 +45,7 @@ function AnimeReviews({ data, allData }) {
             handleSelectedReview={handleSelectedReview}
           />
         ))}
+        {slicedData.length === 0 && <p>No episode found.</p>}
       </div>
       {showModal && (
         <Modal onClick={hideModalHandler}>

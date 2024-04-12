@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import HomePage, { loader as homePageLoader } from "./pages/HomePage";
@@ -27,15 +29,13 @@ import SearchResultsPage, {
 } from "./pages/SearchResultsPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage, { action as registerAction } from "./pages/RegisterPage";
-import { useDispatch } from "react-redux";
+import WatchlistPage, {
+  loader as watchlistLoader,
+} from "./pages/WatchlistPage";
 import {
   fetchCurrentUser,
   fetchUserAllWatchlist,
 } from "./shared/store/auth-action";
-import { useEffect } from "react";
-import WatchlistPage, {
-  loader as watchlistLoader,
-} from "./pages/WatchlistPage";
 
 const router = createBrowserRouter([
   {
@@ -123,7 +123,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCurrentUser());
     dispatch(fetchUserAllWatchlist());
-  }, []);
+  }, [dispatch]);
   return <RouterProvider router={router} />;
 }
 

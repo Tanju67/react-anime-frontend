@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import styles from "./SearchFilter.module.css";
 import Button from "../../shared/UIElements/Button";
 
@@ -20,7 +21,6 @@ function SearchFilter({ filterHandler }) {
       maxScore: maxScore || "",
       status: status || "",
     };
-    console.log(filteredObj);
 
     filterHandler(filteredObj);
   };

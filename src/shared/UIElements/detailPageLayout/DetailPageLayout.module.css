@@ -1,4 +1,4 @@
 .page {
-  color: #bbb;
-  background-color: transparent;
+  color: var(--clr-text);
+  /* background-color: transparent; */
 }

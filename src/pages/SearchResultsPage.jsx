@@ -1,7 +1,7 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { defer } from "react-router-dom";
 import SearchResults from "../components/searchResults/SearchResults";
 import { sendRequest } from "../shared/utils/sendRequest";
-import { defer } from "react-router-dom";
 
 function SearchResultsPage() {
   return <SearchResults />;
@@ -15,7 +15,7 @@ async function loadResults(query, page, type, minScore, maxScore, status) {
   );
 }
 
-export async function loader({ request, params }) {
+export async function loader({ request }) {
   const url = new URL(request.url);
   const query = url.searchParams.get("query");
   const page = url.searchParams.get("page") || 1;

@@ -1,8 +1,8 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import { useSelector } from "react-redux";
 import styles from "./WatchlistDetail.module.css";
 import SliderItem from "../../shared/UIElements/carousel/SliderItem";
 import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
-import { useSelector } from "react-redux";
 
 function WatchlistDetail({ data }) {
   const userWatchlist = useSelector((state) => state.auth.userWatchlist);
@@ -13,7 +13,6 @@ function WatchlistDetail({ data }) {
         pagination={userWatchlist.length >= 10}
         allData={true}
         home={true}
-        pageLink={`/watchlist`}
       >
         <div className={styles.box}>
           {data.map((item) => (

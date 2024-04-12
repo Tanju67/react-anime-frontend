@@ -4,5 +4,22 @@
   align-items: center;
   gap: 0.7rem;
   font-size: 2rem;
-  color: var(--clr-btn);
+  color: var(--clr-logo);
+  border-radius: 50%;
+  padding: 0 1rem;
+}
+
+.svgBox {
+  display: flex;
+  background-color: var(--clr-logo);
+  padding: 1rem;
+  border-radius: 50%;
+  color: #fff;
+}
+.svgBox svg {
+  transition: all 0.5s;
+}
+
+.logo:hover .svgBox svg {
+  transform: rotate(180deg);
 }

@@ -24,11 +24,11 @@
 }
 
 .item a {
-  color: #bbb;
+  color: var(--clr-text);
   transition: all 0.3s;
 }
 
 .item a:hover {
-  color: var(--clr-btn);
+  color: var(--clr-hover);
   text-decoration: underline;
 }

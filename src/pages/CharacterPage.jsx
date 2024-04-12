@@ -1,6 +1,6 @@
-import React from "react";
-import { sendRequest } from "../shared/utils/sendRequest";
+/* eslint-disable react-refresh/only-export-components */
 import { defer } from "react-router-dom";
+import { sendRequest } from "../shared/utils/sendRequest";
 import Character from "../components/character/Character";
 
 function CharacterPage() {
@@ -17,7 +17,7 @@ async function loadCharacter(charId) {
   return sendRequest(`https://api.jikan.moe/v4/characters/${charId}`);
 }
 
-export async function loader({ request, params }) {
+export async function loader({ params }) {
   const charId = params.charId;
   const id = params.id;
   return defer({

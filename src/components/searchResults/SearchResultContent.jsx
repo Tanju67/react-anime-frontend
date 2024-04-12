@@ -1,53 +1,41 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from "./SearchResultContent.module.css";
 import DetailPageSectionLayout from "../../shared/UIElements/detailPageLayout/DetailPageSectionLayout";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchItem from "./SearchItem";
 import Pagination from "../../shared/UIElements/Pagination";
 import SearchFilter from "./SearchFilter";
 
 function SearchResultContent({ data }) {
-  const [searchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
-  const [filteredData, setFilteredData] = useState({
-    type: "",
-    maxScore: "",
-    minScore: "",
-    status: "",
-  });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(+searchParams.get("page") || 1);
   const query = searchParams.get("query");
-  const navigate = useNavigate();
-
-  console.log(data);
 
   const nextPageHandler = () => {
     setPage((page) => page + 1);
-    navigate(
-      `/search-result?query=${query}&page=${page + 1}&type=${
-        filteredData.type
-      }&min_score=${filteredData.minScore}&max_score=${
-        filteredData.maxScore
-      }&status=${filteredData.status}`
-    );
+    setSearchParams((prev) => {
+      prev.set("page", page + 1);
+      return prev;
+    });
   };
   const prevPageHandler = () => {
     if (page === 1) return;
     setPage((page) => page - 1);
-    navigate(
-      `/search-result?query=${query}&page=${page - 1}&type=${
-        filteredData.type
-      }&min_score=${filteredData.minScore}&max_score=${
-        filteredData.maxScore
-      }&status=${filteredData.status}`
-    );
+    setSearchParams((prev) => {
+      prev.set("page", page - 1);
+      return prev;
+    });
   };
 
   const filterHandler = (obj) => {
-    console.log(obj);
-    setFilteredData(obj);
-    navigate(
-      `/search-result?query=${query}&page=${page}&type=${obj.type}&min_score=${obj.minScore}&max_score=${obj.maxScore}&status=${obj.status}`
-    );
+    setSearchParams((prev) => {
+      prev.set("type", obj.type);
+      prev.set("min_score", obj.minScore);
+      prev.set("max_score", obj.maxScore);
+      prev.set("status", obj.status);
+      return prev;
+    });
   };
   return (
     <>
@@ -68,11 +56,13 @@ function SearchResultContent({ data }) {
             <SearchItem key={i} item={item} />
           ))}
           {data?.length === 0 && <p>No episode found.</p>}
-          <Pagination
-            page={page}
-            nextPageHandler={nextPageHandler}
-            prevPageHandler={prevPageHandler}
-          />
+          {data.length > 10 && (
+            <Pagination
+              page={page}
+              nextPageHandler={nextPageHandler}
+              prevPageHandler={prevPageHandler}
+            />
+          )}
         </div>
       </DetailPageSectionLayout>
     </>

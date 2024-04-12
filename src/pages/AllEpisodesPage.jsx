@@ -1,6 +1,6 @@
-import React from "react";
-import AllEpisodes from "../components/allEpisodes/AllEpisodes";
+/* eslint-disable react-refresh/only-export-components */
 import { defer } from "react-router-dom";
+import AllEpisodes from "../components/allEpisodes/AllEpisodes";
 import { sendRequest } from "../shared/utils/sendRequest";
 
 function AllEpisodesPage() {

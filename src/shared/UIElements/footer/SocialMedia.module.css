@@ -1,0 +1,14 @@
+.icons {
+  display: flex;
+  gap: 2rem;
+}
+
+.icons svg {
+  font-size: 3rem;
+  color: var(--clr-btn-tint);
+  transition: all 0.3s;
+}
+
+.icons svg:hover {
+  color: var(--clr-btn-shade);
+}

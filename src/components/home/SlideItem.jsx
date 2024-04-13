@@ -19,7 +19,7 @@ function SlideItem({ title, synopsis, score, year, image, id }) {
     ),url(${image})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right",
-        backgroundSize: "50%",
+        // backgroundSize: "100%",
       }}
     >
       <div className={styles.infoBox}>
@@ -30,9 +30,14 @@ function SlideItem({ title, synopsis, score, year, image, id }) {
           <span>⭐{score} / 10</span> <span>📅 {year}</span>
         </p>
         <p className={styles.desc}>{synopsis.slice(0, 300) + "..."}</p>
-        <Button className={styles.trailerBtn} to={`trailer/${id}`} size="md">
-          <PiTelevision /> <span>Watch Trailer</span>
-        </Button>
+        <div className={styles.btnBox}>
+          <Button className={styles.trailerBtn} to={`trailer/${id}`} size="md">
+            <span>
+              <PiTelevision />
+            </span>
+            <span>Watch Trailer</span>
+          </Button>
+        </div>
       </div>
       <div className={styles.imgBox}></div>
     </div>

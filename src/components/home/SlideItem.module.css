@@ -2,12 +2,19 @@
   display: flex;
   gap: 2rem;
   height: 90vh;
+  justify-content: center;
+  align-items: center;
+  background-size: 50%;
 }
 
 .infoBox {
   flex: 2;
   padding: 8rem 4rem;
   color: #bbb;
+}
+
+.imgBox {
+  flex: 2;
 }
 
 .infoBox h2 {
@@ -30,14 +37,6 @@
   margin-bottom: 2rem;
 }
 
-.imgBox {
-  flex: 2;
-}
-
-.btnBox button {
-  width: 5rem;
-}
-
 .video {
   width: 100%;
   height: 100vh;
@@ -56,15 +55,79 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
+.btnBox {
+  display: flex;
+}
 
 .trailerBtn {
-  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
+.trailerBtn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .trailerBtn svg {
   font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .item {
+    background-size: cover;
+  }
+  .infoBox {
+    flex: 3;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .item {
+    background-size: 70%;
+    height: 80vh;
+  }
+  .infoBox {
+    flex: 3;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+  }
+
+  .imgBox {
+    flex: 2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .item {
+    background-size: cover;
+    height: 90vh;
+  }
+  .infoBox {
+    flex: 4;
+    height: 100%;
+  }
+  .imgBox {
+    flex: 1;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .item {
+    background-size: cover;
+  }
+  .infoBox {
+    flex: 4;
+    height: 100%;
+  }
+  .imgBox {
+    flex: 1;
+  }
 }

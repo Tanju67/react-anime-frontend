@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Slider from "react-slick";
 import SlideItem from "./SlideItem";
+import styles from "./HeaderSlide.module.css";
 
 function HeaderSlide({ animeList }) {
   const settings = {
@@ -25,7 +26,7 @@ function HeaderSlide({ animeList }) {
     ),
   };
   return (
-    <div className="slider-container">
+    <div className={styles["slider-container"]}>
       <Slider {...settings}>
         {animeList?.map((item) => (
           <SlideItem

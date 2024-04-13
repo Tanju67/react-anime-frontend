@@ -9,26 +9,28 @@ function MainNavigation() {
   const [showSearch, setShowSearch] = useState(false);
   return (
     <nav className={styles.mainNav}>
-      <Logo text={true} reel={true} />
-      <div className={styles.icons}>
-        <FaSearch
-          onClick={() => setShowSearch(true)}
-          className={styles.searchIcon}
-        />
-      </div>
-      <div className={styles.normalScreen}>
-        <SearchForm />
-      </div>
-      {showSearch && (
-        <div className={styles.smallScreen}>
-          <SearchForm setShowSearch={setShowSearch} />
-          <div
-            onClick={() => setShowSearch(false)}
-            className={styles.backdrop}
-          ></div>
+      <div className={styles.container}>
+        <Logo text={true} reel={true} />
+        <div className={styles.icons}>
+          <FaSearch
+            onClick={() => setShowSearch(true)}
+            className={styles.searchIcon}
+          />
         </div>
-      )}
-      <NavMenu />
+        <div className={styles.normalScreen}>
+          <SearchForm />
+        </div>
+        {showSearch && (
+          <div className={styles.smallScreen}>
+            <SearchForm setShowSearch={setShowSearch} />
+            <div
+              onClick={() => setShowSearch(false)}
+              className={styles.backdrop}
+            ></div>
+          </div>
+        )}
+        <NavMenu />
+      </div>
     </nav>
   );
 }

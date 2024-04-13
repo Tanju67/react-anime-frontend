@@ -1,5 +1,7 @@
 .section {
   padding: 4rem;
+  max-width: 170rem;
+  margin: 0 auto;
 }
 
 .section h3 {

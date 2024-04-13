@@ -5,9 +5,11 @@
   padding: 1rem;
   background-color: #000;
   gap: 4rem;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   padding-left: 4rem;
+  max-width: 170rem;
+  margin: 0 auto;
 }
 
 .formControl {
@@ -29,4 +31,30 @@
 
 .filterBtn {
   align-self: self-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    gap: 4rem;
+  }
+  .formControl select {
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
+    outline: none;
+    background-color: rgb(255, 237, 205);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .form {
+    gap: 1.5rem;
+  }
+  .formControl select {
+    width: 7rem;
+    height: 3rem;
+    text-align: center;
+    outline: none;
+    background-color: rgb(255, 237, 205);
+  }
 }

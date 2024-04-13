@@ -83,6 +83,9 @@
   .item {
     width: 49%;
   }
+  .readmore {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 600px) {

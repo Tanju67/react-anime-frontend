@@ -1,11 +1,12 @@
-import React from "react";
-import styles from "./DropdownItem.module.css";
+/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
+import styles from "./DropdownItem.module.css";
 
-function DropdownItem({ item, setQuery }) {
+function DropdownItem({ item, setQuery, setShowSearch }) {
   const navigate = useNavigate();
   const clickHandler = () => {
     setQuery("");
+    setShowSearch(false);
     navigate(`/anime/${item.mal_id}`);
   };
   return (

@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from "react";
-import styles from "./SearchForm.module.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import styles from "./SearchForm.module.css";
 import Button from "../Button";
 import Dropdown from "./Dropdown";
 
-function SearchForm() {
+function SearchForm({ setShowSearch }) {
   const [query, setQuery] = useState("");
   const [searchedAnimes, setSearchedAnimes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
+    setShowSearch(false);
+    navigate(
+      `/search-result?query=${query}&page=1&type=&min_score=&max_score=&status=`
+    );
   };
 
   const fetchData = async (controller) => {
@@ -57,6 +63,7 @@ function SearchForm() {
           query={query}
           setQuery={setQuery}
           isLoading={isLoading}
+          setShowSearch={setShowSearch}
         />
       )}
     </div>

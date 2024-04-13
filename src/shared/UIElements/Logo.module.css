@@ -1,12 +1,14 @@
 .logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.7rem;
   font-size: 2rem;
   color: var(--clr-logo);
-  border-radius: 50%;
   padding: 0 1rem;
+}
+.text {
+  min-width: 8rem;
 }
 
 .svgBox {

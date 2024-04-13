@@ -1,5 +1,5 @@
 .formBox {
-  width: 70%;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -13,7 +13,7 @@
 }
 
 .search input {
-  width: 80%;
+  width: 75%;
   padding: 0.5rem 1rem;
   border: none;
   outline: none;
@@ -29,4 +29,34 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  width: 15%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .search input {
+    width: 80%;
+  }
+  .search button {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .formBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6rem;
+    padding: 0.2rem 0.5rem;
+    background-color: black;
+  }
+  .search {
+    height: 5rem;
+  }
+  .search input {
+    height: 100%;
+  }
+  .search button {
+    height: 100%;
+  }
 }

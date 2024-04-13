@@ -9,6 +9,7 @@ function Footer() {
         <FooterNav />
         <SocialMedia />
       </div>
+      <p>This website was created by Tanju Özer for educational purpose.</p>
     </footer>
   );
 }

@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Logo.module.css";
-import { GiAbstract020 } from "react-icons/gi";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { GiAbstract020 } from "react-icons/gi";
+import styles from "./Logo.module.css";
 
 function Logo({ text, className, to, reel }) {
   return (
@@ -12,7 +12,7 @@ function Logo({ text, className, to, reel }) {
         </span>
       )}
       {!reel && <GiAbstract020 />}
-      {text && <span>R-Anime</span>}
+      {text && <span className={styles.text}>R-Anime</span>}
     </Link>
   );
 }

@@ -79,4 +79,7 @@
   .score {
     width: 6rem;
   }
+  .aired {
+    display: none;
+  }
 }

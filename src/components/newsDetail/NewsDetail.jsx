@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { Suspense } from "react";
-import styles from "./NewsDetail.module.css";
 import DetailPageLayout from "../../shared/UIElements/detailPageLayout/DetailPageLayout";
 import Spinner from "../../shared/UIElements/Spinner";
 import { Await, useLoaderData } from "react-router-dom";

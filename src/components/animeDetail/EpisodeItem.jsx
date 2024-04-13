@@ -43,13 +43,13 @@ function EpisodeItem({ data, allEp }) {
         <p className={`${styles.canon} ${data.filler ? styles.fillerEl : ""}`}>
           <span>{data.filler ? "filler" : "canon"}</span>
         </p>
+        <p className={styles.score}>
+          {data.score && <span>⭐{data.score}</span>}
+        </p>
         <p className={styles.title}>
           <span>{data.title}</span>
         </p>
 
-        <p className={styles.score}>
-          {data.score && <span>⭐{data.score}</span>}
-        </p>
         <p className={styles.aired}>
           <span>aired:</span>
           <span>{formatDate(data.aired)}</span>

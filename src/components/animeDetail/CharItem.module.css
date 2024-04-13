@@ -83,3 +83,45 @@
   opacity: 1;
   visibility: visible;
 }
+
+@media only screen and (max-width: 1200px) {
+  .item {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .item {
+    width: 30%;
+  }
+  .item.rounded .imgBox img {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .item .imgBox img {
+    height: 25rem;
+  }
+  .item.rounded .hoverElement {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .item {
+    width: 25%;
+  }
+  .item.rounded .imgBox img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .item .imgBox img {
+    height: 15rem;
+  }
+  .item.rounded .hoverElement {
+    width: 10rem;
+    height: 10rem;
+  }
+}

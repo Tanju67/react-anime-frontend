@@ -1,12 +1,35 @@
+.container {
+  max-width: 170rem;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+}
+
 .content {
   padding: 8rem 4rem;
-  display: flex;
-  gap: 5rem;
   height: 93vh; /* overflow-y: scroll; */
+  display: grid;
+  column-gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image info info info"
+    "image btn btn btn"
+    "image synopsis synopsis synopsis";
+}
+
+.imgBox {
+  grid-area: image;
+}
+.infoBox {
+  grid-area: info;
+}
+
+.synopsisBox {
+  grid-area: synopsis;
 }
 
 .imgBox img {
-  height: 40rem;
+  height: 50rem;
   border-radius: 1rem;
 }
 
@@ -61,8 +84,11 @@
 }
 
 .btnBox {
+  grid-area: btn;
   display: flex;
   gap: 2rem;
+
+  align-self: center;
 }
 
 .btnBox a {
@@ -80,4 +106,56 @@
 
 .btnBox svg {
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .imgBox img {
+    height: 25rem;
+  }
+
+  .content {
+    padding: 8rem 4rem;
+    height: 93vh; /* overflow-y: scroll; */
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "image info info info"
+      "image btn btn btn"
+      "image btn btn btn"
+      "synopsis synopsis synopsis synopsis";
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .imgBox img {
+    height: 25rem;
+  }
+
+  .desc {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .content {
+    padding: 8rem 4rem;
+    height: 93vh; /* overflow-y: scroll; */
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "image info info info"
+      "btn btn btn btn"
+      "synopsis synopsis synopsis synopsis";
+  }
+
+  .container {
+    margin-bottom: 15rem;
+  }
 }

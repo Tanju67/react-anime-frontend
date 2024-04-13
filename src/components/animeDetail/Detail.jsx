@@ -101,10 +101,10 @@ function Detail({ anime, onBg }) {
         </Modal>
       )}
       <div className={styles.content}>
-        <div className={styles.imgBox}>
+        <div className={`${styles.imgBox} ${styles.gridItem}`}>
           <img src={anime?.images.jpg.large_image_url} alt="" />
         </div>
-        <div className={styles.infoBox}>
+        <div className={`${styles.infoBox} ${styles.gridItem}`}>
           <h2 className={styles.title}>{anime?.title_english}</h2>
           <div className={styles.year}>
             <span>
@@ -127,23 +127,24 @@ function Detail({ anime, onBg }) {
             </p>
             <p>⭐{anime?.score}/10</p>
           </div>
-          <div className={styles.btnBox}>
-            <Button to={`/trailer/${anime.mal_id}`} size={"sm"} rounded={true}>
-              <span>
-                <PiTelevision />
-              </span>
-              <span> Watch Trailer</span>
-            </Button>
+        </div>
+        <div className={styles.btnBox}>
+          <Button to={`/trailer/${anime.mal_id}`} size={"sm"} rounded={true}>
+            <span>
+              <PiTelevision />
+            </span>
+            <span> Watch Trailer</span>
+          </Button>
 
-            <Button
-              onClick={isWatchlist ? deleteFromWatchlist : addWatchlistHandler}
-              size={"sm"}
-              rounded={true}
-            >
-              {isWatchlist ? "Delete from watchlist" : "Add to watchlist"}
-            </Button>
-          </div>
-
+          <Button
+            onClick={isWatchlist ? deleteFromWatchlist : addWatchlistHandler}
+            size={"sm"}
+            rounded={true}
+          >
+            {isWatchlist ? "Delete from watchlist" : "Add to watchlist"}
+          </Button>
+        </div>
+        <div className={`${styles.synopsisBox} ${styles.gridItem}`}>
           <p className={styles.synopsis}>{anime?.synopsis}</p>
           <div className={styles.genre}>
             <span>

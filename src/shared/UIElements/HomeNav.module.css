@@ -4,7 +4,7 @@
   width: 100%;
   position: fixed;
   max-width: 170rem;
-  z-index: 100;
+  z-index: 1;
 }
 .subNav a {
   color: #fff;

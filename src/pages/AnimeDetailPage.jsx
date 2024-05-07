@@ -19,8 +19,7 @@ async function loadAnimeStaff(id) {
 
 async function loadAnimeReviews(id, page) {
   return sendRequest(
-    `https://api.jikan.moe/v4/anime/${id}/reviews?page=${page}`,
-    true
+    `https://api.jikan.moe/v4/anime/${id}/reviews?page=${page}`
   );
 }
 
@@ -37,6 +36,7 @@ async function loadAnimeEpisodes(id) {
 }
 
 async function loadNews(id) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return sendRequest(`https://api.jikan.moe/v4/anime/${id}/news`, true);
 }

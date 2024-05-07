@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import styles from "./Dropdown.module.css";
@@ -5,6 +6,7 @@ import DropdownItem from "./DropdownItem";
 
 function Dropdown({ data, query, setQuery, isLoading, setShowSearch }) {
   const filteredData = data.slice(0, 10);
+
   return (
     <div className={styles.dropdown}>
       {filteredData.length > 0 && (

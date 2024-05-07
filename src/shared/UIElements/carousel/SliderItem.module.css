@@ -94,7 +94,9 @@
 
 @media only screen and (max-width: 1024px) {
   .imgBox img {
-    height: 35rem;
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
   }
   .infoBox {
     font-size: 1.2rem;
@@ -108,11 +110,11 @@
 
 @media only screen and (max-width: 600px) {
   .imgBox img {
-    height: 35rem;
+    height: 25rem;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 400px) {
   .imgBox img {
     height: auto;
     width: 100%;

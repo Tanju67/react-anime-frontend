@@ -30,14 +30,14 @@ function CharacterDetail({ data, actor }) {
                 </p>
               )}
               {!actor && data?.nicknames?.length > 0 && (
-                <p className={styles.nick}>
+                <div className={styles.nick}>
                   <span>Nicknames:</span>{" "}
                   <ul>
                     {data?.nicknames?.map((item, i) => (
                       <li key={i}>{item},</li>
                     ))}
                   </ul>
-                </p>
+                </div>
               )}
             </div>
           </div>

@@ -64,7 +64,7 @@ function Carousel({ animeList, similar, watchlist }) {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 400,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

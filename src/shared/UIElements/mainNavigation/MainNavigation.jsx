@@ -7,6 +7,7 @@ import NavMenu from "./NavMenu";
 
 function MainNavigation() {
   const [showSearch, setShowSearch] = useState(false);
+  console.log(setShowSearch);
   return (
     <nav className={styles.mainNav}>
       <div className={styles.container}>
@@ -18,7 +19,7 @@ function MainNavigation() {
           />
         </div>
         <div className={styles.normalScreen}>
-          <SearchForm />
+          <SearchForm setShowSearch={setShowSearch} />
         </div>
         {showSearch && (
           <div className={styles.smallScreen}>

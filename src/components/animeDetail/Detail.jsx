@@ -36,18 +36,21 @@ function Detail({ anime, onBg }) {
     const token = localStorage.getItem("token");
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:5000/api/v1/anime", {
-        method: "POST",
-        body: JSON.stringify({
-          title: anime?.title_english || anime?.title,
-          image: anime?.images.jpg.large_image_url,
-          animeId: anime.mal_id,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        import.meta.env.VITE_BACKEND_URL + "/api/v1/anime",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            title: anime?.title_english || anime?.title,
+            image: anime?.images.jpg.large_image_url,
+            animeId: anime.mal_id,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!res.ok) {
         throw new Error(
@@ -67,13 +70,16 @@ function Detail({ anime, onBg }) {
     const token = localStorage.getItem("token");
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:5000/api/v1/anime/" + idAnime, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        import.meta.env.VITE_BACKEND_URL + "/api/v1/anime/" + idAnime,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!res.ok) {
         throw new Error(
           "Something went wrong by deleting anime from watchlist. Please try again later"

@@ -5,7 +5,7 @@ export const fetchCurrentUser = () => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://localhost:5000/api/v1/auth/currentUser",
+        import.meta.env.VITE_BACKEND_URL + "/api/v1/auth/currentUser",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ export const fetchUserAllWatchlist = () => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/v1/anime?page=1&limit=all",
+        import.meta.env.VITE_BACKEND_URL + "/api/v1/anime?page=1&limit=all",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

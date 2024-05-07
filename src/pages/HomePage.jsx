@@ -1,6 +1,5 @@
-import React from "react";
 import Home from "../components/home/Home";
-import { defer, json } from "react-router-dom";
+import { defer } from "react-router-dom";
 import { sendRequest } from "../shared/utils/sendRequest";
 
 function HomePage() {
@@ -31,9 +30,14 @@ async function loadTopAnimeMovie() {
 async function loadWatchlist() {
   const token = localStorage.getItem("token");
   if (!token) return [];
-  return sendRequest(`http://localhost:5000/api/v1/anime`, true, true, {
-    Authorization: `Bearer ${token}`,
-  });
+  return sendRequest(
+    import.meta.env.VITE_BACKEND_URL + `/api/v1/anime`,
+    true,
+    true,
+    {
+      Authorization: `Bearer ${token}`,
+    }
+  );
 }
 
 export async function loader() {

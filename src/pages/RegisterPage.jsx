@@ -14,11 +14,14 @@ export async function action({ request }) {
   const name = data.get("name");
   const password = data.get("password");
 
-  const res = await fetch("http://localhost:5000/api/v1/auth/register", {
-    method: "POST",
-    body: JSON.stringify({ name, email, password }),
-    headers: { "Content-Type": "application/json" },
-  });
+  const res = await fetch(
+    import.meta.env.VITE_BACKEND_URL + "/api/v1/auth/register",
+    {
+      method: "POST",
+      body: JSON.stringify({ name, email, password }),
+      headers: { "Content-Type": "application/json" },
+    }
+  );
   const resData = await res.json();
 
   if (!res.ok) {

@@ -13,7 +13,7 @@ async function loadWatchlist(page) {
   const token = localStorage.getItem("token");
   if (!token) return [];
   return sendRequest(
-    `http://localhost:5000/api/v1/anime?page=${page}`,
+    import.meta.env.VITE_BACKEND_URL + `/api/v1/anime?page=${page}`,
     true,
     true,
     {

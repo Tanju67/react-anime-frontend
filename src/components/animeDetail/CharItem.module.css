@@ -102,6 +102,9 @@
   .item .imgBox img {
     height: 25rem;
   }
+  .hoverElement {
+    height: 25rem;
+  }
   .item.rounded .hoverElement {
     width: 15rem;
     height: 15rem;
@@ -112,14 +115,17 @@
   .item {
     width: 25%;
   }
+  .item .imgBox img {
+    height: 15rem;
+  }
+  .hoverElement {
+    height: 15rem;
+  }
   .item.rounded .imgBox img {
     height: 10rem;
     width: 10rem;
   }
 
-  .item .imgBox img {
-    height: 15rem;
-  }
   .item.rounded .hoverElement {
     width: 10rem;
     height: 10rem;

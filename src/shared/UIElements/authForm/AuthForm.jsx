@@ -16,8 +16,8 @@ function AuthForm({
   error,
 }) {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(login ? "test@mail.com" : "");
+  const [password, setPassword] = useState(login ? "secret123" : "");
 
   const submitHandler = (e) => {
     e.preventDefault();
